@@ -1,0 +1,23 @@
+.navbar {
+    background-color: #333; /* Cor de fundo da navbar */
+    padding: 16px;          /* Espaçamento interno */
+  }
+  
+  .navList {
+    list-style: none;       /* Remove os marcadores da lista */
+    display: flex;          /* Exibe os itens em linha */
+    justify-content: space-around; /* Espaço igual entre os itens */
+    margin: 0;             /* Remove a margem padrão */
+    padding: 0;            /* Remove o padding padrão */
+  }
+  
+  .navItem a {
+    color: white;          /* Cor do texto dos links */
+    text-decoration: none; /* Remove o sublinhado */
+    font-weight: bold;     /* Texto em negrito */
+    transition: color 0.3s; /* Transição suave para a cor */
+  }
+  
+  .navItem a:hover {
+    color: #25D366; /* Cor ao passar o mouse */
+  }
