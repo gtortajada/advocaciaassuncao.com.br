@@ -1,11 +1,22 @@
 .navbar {
-    background-color: #333; /* Cor de fundo da navbar */
-    padding: 16px;          /* Espaçamento interno */
+    background-color: transparent;  /* Fundo transparente para integrar com a imagem da home */
+    padding: 16px;  /* Espaçamento interno */
+    position: fixed;  /*Fixa a navbar no topo da página */
+    width: 100%;  /* Navbar ocupa toda a largura da página */
+    top: 0; /*Posiciona a navbar no topo */
+    left: 0;  /*Alinha a navbar à esquerda */
+    z-index: 1000;  /*Navbar em cima de qualquer outro item do site */
+    transition: padding 0.3s, background-color 0.3s;  /* Transição suave no CSS */
+  }
+
+  .shrink {
+    padding: 8px; /*Reduz o padding quando a página rola */
+    background-color: blueviolet; /*Muda a cor ao sair da página inicial */
   }
   
   .navList {
     list-style: none;       /* Remove os marcadores da lista */
-    display: flex;          /* Exibe os itens em linha */
+    display: flex;          /*Exibe os itens em linha */
     justify-content: space-around; /* Espaço igual entre os itens */
     margin: 0;             /* Remove a margem padrão */
     padding: 0;            /* Remove o padding padrão */
@@ -19,5 +30,9 @@
   }
   
   .navItem a:hover {
-    color: #25D366; /* Cor ao passar o mouse */
+    color: #25D366; /* Cor ao passar o mouse*/
+  }
+
+  .navLogo {
+    cursor: pointer;  /*Muda o cursor para indicar que a logo é clicável*/
   }
