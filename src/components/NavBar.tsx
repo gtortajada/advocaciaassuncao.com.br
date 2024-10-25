@@ -16,34 +16,36 @@ const Navbar: React.FC = () => {
         setShrink(true);
       } else {
         setShrink(false);
-      }      
+      }
     };
     window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener('scroll',handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   return (
     <nav className={`${styles.navbar} ${shrink ? styles.shrink : ''}`}>
-      <Image
-        src="/variacaoLogo.png"
-        alt="Logo da empresa"
-        width={100}
-        height={100}
-        className={styles.navLogo}
-        onClick={() => router.push('/')} //Navega para a home
-      />
-              
-      <ul className={styles.navList}>
-        <li className={styles.navItem}><a href="#hero">Início</a></li> {// ver ref no site do galileo (usar next link)
-        }
-        <li className={styles.navItem}><a href="#servicos">Serviços</a></li>
-        <li className={styles.navItem}><a href="#provasocial">O que dizem</a></li>
-        <li className={styles.navItem}><a href="#diferencial">Diferenciais</a></li>
-        <li className={styles.navItem}><a href="#sobreNos">Sobre nós</a></li>
-        <li className={styles.navItem}><a href="#contact">Contato</a></li>
-      </ul>
+      <div className={styles.navContainer}>
+        <Image
+          src="/variacaoLogo.png"
+          alt="Logo da empresa"
+          width={shrink ? 50 : 100}
+          height={shrink ? 50 : 100}
+          className={styles.navLogo}
+          onClick={() => router.push('/')} //Navega para a home
+        />
+
+        <ul className={styles.navList}>
+          <li className={styles.navItem}><a href="#hero">INÍCIO</a></li> {// ver ref no site do galileo (usar next link)
+          }
+          <li className={styles.navItem}><a href="#servicos">PEDIDOS</a></li>
+          <li className={styles.navItem}><a href="#provasocial">APRESENTAÇÃO</a></li>
+          <li className={styles.navItem}><a href="#diferencial">PERGUNTAS FREQUENTES</a></li>
+          <li className={styles.navItem}><a href="#sobreNos">PROVA SOCIAL</a></li>
+          <li className={styles.navItem}><a href="#contact">CONTATO</a></li>
+        </ul>
+      </div>
     </nav>
   );
 };

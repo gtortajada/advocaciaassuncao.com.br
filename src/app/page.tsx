@@ -3,75 +3,92 @@ import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-     <div id="hero" className={styles.section}>
-      <h1>Bem vindo ao nosso site!</h1>
-      <p>Esta é a hero section.</p>     
-      </div>
+    <section className={styles.page}>
 
-      <div id="servicos" className={styles.section}>
-        <div>
-          <h2>NOSSOS SERVIÇOS - Falei com cliente e vamos tentar reduzir essa lista toda</h2>
-          <p>PRINCIPAIS PEDIDOS BANCÁRIOS</p>
+      {/* Hero Section */}
+      <section id="hero" className={styles.section}>
+        <div className={styles.heroContent}>
+          <h1>Advocacia especializada em causas trabalhistas bancárias, com foco nos resultados e atendimento personalizado em todo o Brasil.</h1>
+          <button> Entrar em contato </button> {/*Falta o direcionamento do botão*/}
         </div>
-        <div id="esquerda" className={styles.section}>
+        <div className={styles.cards}>
+          <div className={styles.card}>
+            <h3>Estratégia e precisão</h3>
+          </div>
+          <div className={styles.card}>
+            <h3>Atendimento online facilitado</h3>
+          </div>
+          <div className={styles.card}>
+            <h3>Recursos até a última instância</h3>
+          </div>
+        </div>
+      </section>
+
+      {/* Pedidos bancários */}
+      <section id="servicos" className={styles.section}>
+        <div>
+          <h2>PRINCIPAIS PEDIDOS BANCÁRIOS</h2>
+        </div>
+        <div id="pedidos">
+             <div id="boxesq" className={styles.section}>
           <ul>
             <li>HORAS EXTRAS (7ª e 8ª);</li>
             <li>HORAS EXTRAS ALÉM DA 8ª;</li>
             <li>HORAS EXTRAS INTERJORNADA;</li>
             <li>HORAS EXTRAS INTRAJORNADAS;</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            
+            <li>ARTIGO 384 (INTERVALO DA MULHER);</li>
+            <li>DESVIO DE FUNÇÃO;</li>
+            <li>EQUIPARAÇÃO SALARIAL;</li>
+            <li>ADICIONAL DE TRANSFERÊNCIA;</li>
+            <li>VENDA OBRIGATÓRIA DE FÉRIAS;</li>
+            <li>DESPESAS COM USO DE VEÍCULO PARTIPLAR;</li>
+            <li>REINTEGRAÇÃO AO EMPREGO;</li>
+            <li>PERICULOSIDADE;</li>
+            <li>DANOS MORAIS;</li>
           </ul>
         </div>
-        <div id="direita" className={styles.section}>
+        <div id="boxdir" className={styles.section}>
           <ul>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            <li>HORAS EXTRAS (7 e 8);</li>
-            
+            <li>ASSÉDIO MORAL;</li>
+            <li>DANO MATERIAL;</li>
+            <li>DOENÇA OCUPACIONAL;</li>
+            <li>ACIDENTE DE TRABALHO;</li>
+            <li>DANO EXISTENCIAL;</li>
+            <li>ANÁLISE E REVERSÃO DE JUSTA CAUSA;</li>
+            <li>REINTEGRAÇÃO POR TUTELA DE URGÊNCIA – ESTABILIDADE;</li>
+            <li>PROTESTO INTERRUPTIVO DE PRESCRIÇÃO;</li>
+            <li>DESPESAS COM USO DE VEÍCULO PARTIPLAR;</li>
+            <li>REINTEGRAÇÃO AO EMPREGO;</li>
+            <li>MANUTENÇÃO DO PLANO DE SAÚDE NAS MESMAS CONDIÇÕES ENQUANTO CONTRATO ATIVO – URGÊNCIA;</li>
           </ul>
         </div>
-      </div>
- 
-      <div id="provasocial" className={styles.section}>
-      <h2>O que nossos clientes dizem</h2>
-      <p>Testemunhos e avaliações de clientes.</p>
-      </div>
+        </div>
+      </section>
 
-      <div id="diferencial" className={styles.section}>
-      <h2>Diferenciais</h2>
-      <p>Destaques e diferenciais da empresa</p>
-      </div>
+      {/* Prova Social Section */}
+      <section id="provasocial" className={styles.section}>
+        <h2>O que nossos clientes dizem</h2>
+        <p>Testemunhos e avaliações de clientes.</p>
+      </section>
 
-      <div id="sobreNos" className={styles.section}>
-      <h2>Sobre nós.</h2>
-      <p>Descrição da empresa.</p>
-      </div>
+      {/*Diferencias Section*/}
+      <section id="diferencial" className={styles.section}>
+        <h2>Diferenciais</h2>
+        <p>Destaques e diferenciais da empresa</p>
+      </section>
 
-      <div id="contact" className={styles.section}>
-      <h2>Contato</h2>
-      <p>Descrição de contato.</p>
-      </div>
+       {/*Sobre nós Section*/}
+      <section id="sobreNos" className={styles.section}>
+        <h2>Sobre nós.</h2>
+        <p>Descrição da empresa.</p>
+      </section>
 
-    </div>
+      {/*Contato Section*/}
+      <section id="contact" className={styles.section}>
+        <h2>Contato</h2>
+        <p>Descrição de contato.</p>
+      </section>
+
+    </section>
   );
 }
