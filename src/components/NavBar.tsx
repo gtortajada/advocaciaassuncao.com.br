@@ -1,13 +1,14 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'; //Adicionei pelo scroll ao clicar na logo.
 
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
+//import Image from 'next/image';
 import styles from './NavBar.module.css';
-import { useRouter } from 'next/navigation';
+//import { useRouter } from 'next/navigation';
 
 const Navbar: React.FC = () => {
   const [shrink, setShrink] = useState(false);
-  const router = useRouter(); //Para direcionamento, usa 'next/navigation' //olhar iste galileo para ver como links funcionam.
+//  const router = useRouter(); //Para direcionamento, usa 'next/navigation' //olhar iste galileo para ver como links funcionam.
 
   //Função para detectar o scroll e ajustar o tamanho da navbar
   useEffect(() => {
@@ -27,14 +28,15 @@ const Navbar: React.FC = () => {
   return (
     <nav className={`${styles.navbar} ${shrink ? styles.shrink : ''}`}>
       <div className={styles.navContainer}>
-        <Image
+        {/* <Image
           src="/variacaoLogo.png"
           alt="Logo da empresa"
           width={shrink ? 50 : 100}
           height={shrink ? 50 : 100}
           className={styles.navLogo}
           onClick={() => router.push('/')} //Navega para a home
-        />
+        /> */}
+        <img src="/variacaoLogo.png" alt="Logo empresa" className={styles.logo}/>
 
         <ul className={styles.navList}>
           <li className={styles.navItem}><a href="#hero">INÍCIO</a></li> {// ver ref no site do galileo (usar next link)

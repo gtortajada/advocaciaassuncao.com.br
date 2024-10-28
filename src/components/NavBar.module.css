@@ -24,8 +24,11 @@
     justify-content: space-between;
   }
 
-  .navLogo {
+  .logo {
     cursor: pointer;
+    height: 130px;
+    width: 565px;
+    background-color: gray;
   }
 
   .navList {
