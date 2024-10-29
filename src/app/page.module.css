@@ -4,9 +4,6 @@
 }
 
 /*Sections*/
-.section {
-  /* min-height: 60vh; /*Cada section terá ao menos 60% da tela*/
-}
 
 @media (max-width: 768px) {
   .section {
@@ -42,8 +39,12 @@
   top: 40%;
   left: 50%;
 
-
   border: 3px solid greenyellow;
+}
+
+.buttonhero {
+  font-size: 20px;
+  ;
 }
 
 .cards {
@@ -58,7 +59,6 @@
 }
 
 .card {
-
   background-color: #BC8D43;
   margin: 15px;
   padding: 10px;
@@ -66,13 +66,66 @@
 
 /*servicos Section*/
 .servicos {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
   padding: 0;
-  background-color: aquamarine;
+
+  background-color: brown;
+}
+
+.servicoscontent {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.tituloservicos {
+  padding: 25px;
+  text-align: center;
+
+  border: 3px solid yellowgreen;
 }
 
 .pedidos {
-  display: flex;
   gap: 20px;
+}
+
+.box {
+  display: flex;
+  padding: 25px;
+}
+
+.boxesq {
+  padding: 0px 10px;
+}
+
+.boxdir {
+  padding: 0px 10px;
+}
+
+.buttonservicos {
+  font-size: 20px;
+  padding: 10px;
+}
+
+.lista {
+  margin: 50px;
+  list-style-type: none;
+}
+
+.linhas {
+  padding: 5px
+}
+
+.bancos {
+  padding: 25px;
+}
+
+.banco {
+  padding: 5px;
 }
 
 @media (max-width: 768px) {
@@ -84,7 +137,48 @@
 
 /* provaSocial Section */
 .provasocial {
-  background-color: yellow;
+  background-color: orchid;
+}
+
+.contentprovasocial{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-evenly;
+
+  padding-bottom: 35px;
+}
+
+.tituloprovasocial{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  padding: 25px
+}
+
+.depoimentos{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.depoimento1, .depoimento2, .depoimento3{
+  padding: 0px 35px;
+}
+
+.textodepoimento{
+  padding: 5px 0;
+}
+
+.nomedepoimento{
+  padding: 5px 0px;
+}
+
+.pedidodepoimento{
+
 }
 
 /* diferencial Section */
@@ -101,17 +195,3 @@
 .contato {
   background-color: thistle;
 }
-
-/* #boxesq{
-  flex: 1;
-
-}
-
-#boxdir{
-  flex: 1;
-
-}
-
-.boxesq, .boxdir {
-  flex: 1;
-} */
