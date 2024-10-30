@@ -105,8 +105,35 @@ export default function Home() {
 
       {/*Diferencias Section*/}
       <section id="diferencial" className={styles.diferencial}>
-        <h2>POR QUE ESCOLHER A ADVOCACIA ASSUNÇÃO?</h2>
-        <p>Destaques e diferenciais da empresa</p>
+        <div className={styles.contentdiferenciais}>
+          <div className={styles.headerdiferenciais}>
+            <h4 className={styles.h4}>ESPECIALIDADES</h4>
+            <p className={styles.titulodiferenciais}>POR QUE ESCOLHER A ADVOCACIA ASSUNÇÃO?</p>
+          </div>
+          <div className={styles.cardsdiferenciais}>
+            <div className={styles.cards1e2diferenciais}>
+              <div className={styles.card1}>
+                <p>Foco nos resultados</p>
+                <p>Trabalhamos com determinação<br />para alcançar resultados<br />concretos e efetivos.</p>
+              </div>
+              <div className={styles.card2}>
+                <p>Agilidade e profissionalismo</p>
+                <p>Soluções rápidas e ágeis para<br />cada situação, com foco na<br />resolução do seu caso.</p>
+              </div>
+            </div>
+            <div className={styles.cards3e4diferenciais}>
+              <div className={styles.card3}>
+                <p>Profissionalismo</p>
+                <p>Comprometimento em cada<br />detalhe do seu processo,<br />assegurando atendimento<br />de alto nível.</p>
+              </div>
+              <div className={styles.card4}>
+                <p>Disponibilidade</p>
+                <p>Estamos prontos para<br />agir com rapidez e eficiência.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </section>
 
       {/*Sobre nós Section*/}
