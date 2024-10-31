@@ -140,25 +140,25 @@ export default function Home() {
       <section id="sobreNos" className={styles.sobrenos}>
         <div className={styles.contentsobrenos}>
           <div className={styles.headersobrenos}>
-            <h2>CONHEÇA NOSSO ESCRITÓRIO</h2>
+            <h5>CONHEÇA NOSSO ESCRITÓRIO</h5>
           </div>
           <div className={styles.corposobrenos}>
             <div className={styles.joao}>
               <Image
-              src="/fotoperfil.jpg" alt="Foto de perfil do João Pedro Assunção" 
-              layout="fill" objectFit="cover" className={styles.imagejoao}/>
+                src="/fotoperfil.jpg" alt="Foto de perfil do João Pedro Assunção"
+                layout="fill" objectFit="cover" className={styles.imagejoao} />
               <div className={styles.overlay}></div>
               <p className={styles.textoimagemjoao}>João Pedro Assunção é um advogado especializado<br />
-              em causas trabalhistas bancárias. Com uma atuação<br /> sólida na área, ele oferece estratégias<br />
-               personalizadas, sempre focado em alcançar os melhores resultados.</p>
+                em causas trabalhistas bancárias. Com uma atuação<br /> sólida na área, ele oferece estratégias<br />
+                personalizadas, sempre focado em alcançar os melhores resultados.</p>
             </div>
             <div className={styles.textoescritorio}>
               <p>Especializada em direito trabalhista bancário,<br />a Advocacia Assunção é reconhecida por sua<br />
-              atuação diligente e estratégica. Nossa prática<br />é orientada pelos valores de excelência,<br />
-              inovação, dedicação e transparência, que guiam<br />cada etapa do processo. Com atendimento remoto<br />
-              para clientes em todo o Brasil, oferecemos uma<br /> experiência eficiente e resultados consistentes.<br />
-              Com dedicação, defendemos os direitos dos<br />trabalhadores bancários, garantindo justiça<br />
-               e equidade no ambiente de trabalho.</p>
+                atuação diligente e estratégica. Nossa prática<br />é orientada pelos valores de excelência,<br />
+                inovação, dedicação e transparência, que guiam<br />cada etapa do processo. Com atendimento remoto<br />
+                para clientes em todo o Brasil, oferecemos uma<br /> experiência eficiente e resultados consistentes.<br />
+                Com dedicação, defendemos os direitos dos<br />trabalhadores bancários, garantindo justiça<br />
+                e equidade no ambiente de trabalho.</p>
             </div>
           </div>
         </div>
@@ -167,10 +167,26 @@ export default function Home() {
 
       {/*Contato Section*/}
       <section id="contato" className={styles.contato}>
-        <h2>Contato</h2>
-        <p>Descrição de contato.</p>
+        <div className={styles.contentcontato}>
+          <div className={styles.sobredivesq}>
+            <div className={styles.titulocontato}>
+              <h6>Fale conosco</h6>
+            </div>
+            <p>Para esclarecer suas dúvidas e saber<br /> as possibilidades do seu caso, faça já uma <br />
+              consulta diretamente com o João Pedro</p>
+          </div>
+          <div className={styles.sobredivdir}>
+            <div className={styles.wpp}>
+              <p>Entre em contato via WhattsApp</p>
+              <button className={styles.buttoncontato}>Entre em contato</button>
+            </div>
+            <div className={styles.email}>
+              <p>Entre em contato via e-mail</p>
+              <button>E-mail</button>
+            </div>
+          </div>
+        </div>
       </section>
-
     </section>
   );
 }

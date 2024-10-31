@@ -335,6 +335,37 @@
 }
 
 /* contato Section */
-.contato {
+.contentcontato {
   background-color: thistle;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.sobredivesq {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+
+  padding: 20px;
+}
+
+.titulocontato {
+  font-size: 30px;
+}
+
+.sobredivdir{
+  padding: 20px;
+}
+
+.buttoncontato {
+  background-color: teal;
+  width: 55%;
+  height: 5%;
+
+  padding: 5px;
 }
