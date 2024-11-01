@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <section className={styles.page}>
+    <>
 
       {/* Hero Section */} {/*Adicionar Paralax*/}
       <section id="hero" className={styles.hero}>
@@ -187,6 +187,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </section>
+    </>
   );
 }
