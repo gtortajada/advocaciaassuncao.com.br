@@ -31,43 +31,43 @@ export default function Home() {
           <div className={styles.tituloservicos}>
             <h2>PRINCIPAIS PEDIDOS BANCÁRIOS</h2>
           </div>
-          <div id="pedidos" className={styles.pedidos}> {/*Adicionar ícones*/}
 
-            <div className={styles.box}>
-              <div id="boxesq" className={styles.boxesq}>
-                <ul className={styles.lista}>
-                  <li className={styles.linhas}>HORAS EXTRAS (7ª e 8ª);</li>
-                  <li className={styles.linhas}>HORAS EXTRAS ALÉM DA 8ª;</li>
-                  <li className={styles.linhas}>HORAS EXTRAS INTERJORNADA;</li>
-                  <li className={styles.linhas}>HORAS EXTRAS INTRAJORNADAS;</li>
-                  <li className={styles.linhas}>ARTIGO 384 (INTERVALO DA MULHER);</li>
-                  <li className={styles.linhas}>DESVIO DE FUNÇÃO;</li>
-                  <li className={styles.linhas}>EQUIPARAÇÃO SALARIAL;</li>
-                  <li className={styles.linhas}>ADICIONAL DE TRANSFERÊNCIA;</li>
-                  <li className={styles.linhas}>VENDA OBRIGATÓRIA DE FÉRIAS;</li>
-                  <li className={styles.linhas}>USO DE VEÍCULO PARTICULAR;</li>
-                  <li className={styles.linhas}>REINTEGRAÇÃO AO EMPREGO;</li>
-                  <li className={styles.linhas}>PERICULOSIDADE;</li>
-                </ul>
-              </div>
-              <div id="boxdir" className={styles.boxdir}>
-                <ul className={styles.lista}>
-                  <li className={styles.linhas}>DANOS MORAIS;</li>
-                  <li className={styles.linhas}>ASSÉDIO MORAL;</li>
-                  <li className={styles.linhas}>DANO MATERIAL;</li>
-                  <li className={styles.linhas}>DOENÇA OCUPACIONAL;</li>
-                  <li className={styles.linhas}>ACIDENTE DE TRABALHO;</li>
-                  <li className={styles.linhas}>DANO EXISTENCIAL;</li>
-                  <li className={styles.linhas}>ANÁLISE E REVERSÃO DE JUSTA CAUSA;</li>
-                  <li className={styles.linhas}>REINTEGRAÇÃO POR TUTELA DE URGÊNCIA</li>
-                  <li className={styles.linhas}>PROTESTO INTERRUPTIVO DE PRESCRIÇÃO;</li>
-                  <li className={styles.linhas}>REINTEGRAÇÃO AO EMPREGO;</li>
-                  <li className={styles.linhas}>PLANO DE SAÚDE (MESMA CONDIÇÃO DE <br />CONTRATO ATIVO);</li>
-                </ul>
-              </div>
+          <div id="pedidos" className={styles.pedidos}> {/*Adicionar ícones*/}
+            <div id="boxesq" className={styles.boxesq}>
+              <ul className={styles.lista}>
+                <li className={styles.linhas}>HORAS EXTRAS (7ª e 8ª);</li>
+                <li className={styles.linhas}>HORAS EXTRAS ALÉM DA 8ª;</li>
+                <li className={styles.linhas}>HORAS EXTRAS INTERJORNADA;</li>
+                <li className={styles.linhas}>HORAS EXTRAS INTRAJORNADAS;</li>
+                <li className={styles.linhas}>ARTIGO 384 (INTERVALO DA MULHER);</li>
+                <li className={styles.linhas}>DESVIO DE FUNÇÃO;</li>
+                <li className={styles.linhas}>EQUIPARAÇÃO SALARIAL;</li>
+                <li className={styles.linhas}>ADICIONAL DE TRANSFERÊNCIA;</li>
+                <li className={styles.linhas}>VENDA OBRIGATÓRIA DE FÉRIAS;</li>
+                <li className={styles.linhas}>USO DE VEÍCULO PARTICULAR;</li>
+                <li className={styles.linhas}>REINTEGRAÇÃO AO EMPREGO;</li>
+                <li className={styles.linhas}>PERICULOSIDADE;</li>
+              </ul>
+            </div>
+            <div id="boxdir" className={styles.boxdir}>
+              <ul className={styles.lista}>
+                <li className={styles.linhas}>DANOS MORAIS;</li>
+                <li className={styles.linhas}>ASSÉDIO MORAL;</li>
+                <li className={styles.linhas}>DANO MATERIAL;</li>
+                <li className={styles.linhas}>DOENÇA OCUPACIONAL;</li>
+                <li className={styles.linhas}>ACIDENTE DE TRABALHO;</li>
+                <li className={styles.linhas}>DANO EXISTENCIAL;</li>
+                <li className={styles.linhas}>ANÁLISE E REVERSÃO DE JUSTA CAUSA;</li>
+                <li className={styles.linhas}>REINTEGRAÇÃO POR TUTELA DE URGÊNCIA</li>
+                <li className={styles.linhas}>PROTESTO INTERRUPTIVO DE PRESCRIÇÃO;</li>
+                <li className={styles.linhas}>REINTEGRAÇÃO AO EMPREGO;</li>
+                <li className={styles.linhas}>PLANO DE SAÚDE (MESMA CONDIÇÃO DE <br />CONTRATO ATIVO);</li>
+              </ul>
             </div>
           </div>
+
           <button className={styles.buttonservicos}> Fale com um especialista</button>
+
           <div className={styles.bancos}> {/*Adicionar Accordion*/}
             <p className={styles.banco}>BANCO ITAÚ</p>
             <p className={styles.banco}>BANCO SANTANDER</p>

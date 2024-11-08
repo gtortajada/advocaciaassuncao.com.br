@@ -2,10 +2,8 @@
 
 @media (max-width: 768px) {
   .section {
-    margin: 30px 0;
-    /*Espaçamento para baixo e para cima de cada section */
-    min-height: 30vh;
-    /*Cada section terá 60% da tela*/
+    margin: 30px 0; /*Espaçamento para baixo e para cima de cada section */
+    min-height: 30vh; /*Cada section terá 60% da tela*/
   }
 }
 
@@ -39,7 +37,6 @@
 
 .buttonhero {
   font-size: 20px;
-  ;
 }
 
 .cards {
@@ -87,9 +84,6 @@
 
 .pedidos {
   gap: 20px;
-}
-
-.box {
   display: flex;
   padding: 25px;
 }
