@@ -7,6 +7,8 @@ import Navbar from '../components/NavBar';
 import Footer from '../components/Footer';
 import FloatingButton from 'components/FloatingButton';
 
+import { Provider } from 'components/ui/provider';
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -23,20 +25,28 @@ export const metadata: Metadata = {
   description: "Advocacia Assunção",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function Layout({ children, 
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="pt-br">
-      
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Navbar />
-        {children}
-        <Footer />
-        <FloatingButton />
-      </body>
-    </html>
-  );
+    <Provider>
+      <html lang="pt-br">
+        <body className={`${geistSans.variable} ${geistMono.variable}`}>
+          <Navbar />
+          {children}
+          <Footer />
+          <FloatingButton />
+        </body>
+      </html>
+    </Provider>
+  )
 }
+
+// export default function RootLayout({children,}: Readonly<{
+//   children: React.ReactNode;
+// }>) {
+//   return (
+//   
+//   );
+// }

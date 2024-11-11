@@ -145,8 +145,8 @@ export default function Home() {
           <div className={styles.corposobrenos}>
             <div className={styles.joao}>
               <Image
-                src="/fotoperfil.jpg" alt="Foto de perfil do João Pedro Assunção"
-                layout="fill" objectFit="cover" className={styles.imagejoao} />
+                src="/fotoperfil.jpg" alt="Foto de erfil do João Pedro Assunção"
+                fill className={styles.imagejoao} />
               <div className={styles.overlay}></div>
               <p className={styles.textoimagemjoao}>João Pedro Assunção é um advogado especializado<br />
                 em causas trabalhistas bancárias. Com uma atuação<br /> sólida na área, ele oferece estratégias<br />
