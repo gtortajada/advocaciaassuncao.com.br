@@ -1,7 +1,7 @@
 import './globals.css';
 
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+// import localFont from "next/font/local";
 
 import Navbar from '../components/NavBar';
 import Footer from '../components/Footer';
@@ -9,44 +9,32 @@ import FloatingButton from 'components/FloatingButton';
 
 import { Provider } from 'components/ui/provider';
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+// const geistSans = localFont({
+//   src: "./fonts/GeistVF.woff",
+//   variable: "--font-geist-sans",
+//   weight: "100 900",
+// });
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
 
 export const metadata: Metadata = {
   title: "Advocacia Assunção",
   description: "Advocacia Assunção",
 };
 
-export default function Layout({ children, 
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout(props: { children: React.ReactNode }) {
+  const { children } = props
   return (
-    <Provider>
-      <html lang="pt-br">
-        <body className={`${geistSans.variable} ${geistMono.variable}`}>
-          <Navbar />
-          {children}
-          <Footer />
-          <FloatingButton />
-        </body>
-      </html>
-    </Provider>
+    <html suppressHydrationWarning lang="pt-br"> 
+      <body > {/* Estava na tag body: className={`${geistSans.variable} ${geistMono.variable}`}*/}
+        <Navbar />
+        <Provider>{children}</Provider>
+        <Footer />
+        <FloatingButton />
+      </body>
+    </html>
   )
 }
-
-// export default function RootLayout({children,}: Readonly<{
-//   children: React.ReactNode;
-// }>) {
-//   return (
-//   
-//   );
-// }
