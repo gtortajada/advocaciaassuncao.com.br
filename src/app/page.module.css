@@ -1,117 +1,29 @@
-/* 2° . = classe | 1° # = id */
 .page {
-  padding: 0;
-}
-
-/*Sections*/
-.section {
-  /* min-height: 60vh; /*Cada section terá ao menos 60% da tela*/
-}
-
-@media (max-width: 768px) {
-  .section {
-    margin: 30px 0;
-    /*Espaçamento para baixo e para cima de cada section */
-    min-height: 30vh;
-    /*Cada section terá 60% da tela*/
-  }
-}
-
-/*Hero Section*/
-.hero {
-  background-image: url("/teste.jpg");
-  background-color: burlywood;
-
   display: flex;
-  padding-bottom: 100px;
-  min-height: 76vh;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  background-color: #000;
+  text-align: center;
 }
 
-.heroContent {
+.div {
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
-  align-content: normal;
-  justify-content: center;
-  align-items: flex-start;
-
-  margin-left: 10%;
-  margin-right: 25%;
-  gap: 40px;
-
-  top: 40%;
-  left: 50%;
-
-
-  border: 3px solid greenyellow;
-}
-
-.cards {
   align-items: center;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-content: normal;
-  margin-top: -100px;
-
-  border: 3px solid greenyellow;
+  width: 80%;
+  max-width: 600px;
 }
 
-.card {
-
-  background-color: #BC8D43;
-  margin: 15px;
-  padding: 10px;
+.fotologo {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
 }
 
-/*servicos Section*/
-.servicos {
-  padding: 0;
-  background-color: aquamarine;
+.div p {
+  margin: 5px 0;
+  font-size: 1.2rem;
+  color: #fff;
 }
-
-.pedidos {
-  display: flex;
-  gap: 20px;
-}
-
-@media (max-width: 768px) {
-  .pedidos {
-    flex-direction: column;
-    /*Transforma em coluna no mobile*/
-  }
-}
-
-/* provaSocial Section */
-.provasocial {
-  background-color: yellow;
-}
-
-/* diferencial Section */
-.diferencial {
-  background-color: tomato;
-}
-
-/* sobreNos Section */
-.sobreNos {
-  background-color: yellowgreen;
-}
-
-/* contato Section */
-.contato {
-  background-color: thistle;
-}
-
-/* #boxesq{
-  flex: 1;
-
-}
-
-#boxdir{
-  flex: 1;
-
-}
-
-.boxesq, .boxdir {
-  flex: 1;
-} */
