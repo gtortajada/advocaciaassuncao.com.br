@@ -3,8 +3,8 @@ import './globals.css';
 import type { Metadata } from "next";
 // import localFont from "next/font/local";
 
-import Navbar from '../components/NavBar';
-import Footer from '../components/Footer';
+// import Navbar from '../components/NavBar';
+import Footer from '/home/gtortajada/Documents/2024/jobs/advocaciaassuncao.com.br/src/components/Footer';
 import FloatingButton from 'components/FloatingButton';
 
 import { Provider } from 'components/ui/provider';
@@ -30,7 +30,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html suppressHydrationWarning lang="pt-br"> 
       <body > {/* Estava na tag body: className={`${geistSans.variable} ${geistMono.variable}`}*/}
-        <Navbar />
+        {/* <Navbar /> */}
         <Provider>{children}</Provider>
         <Footer />
         <FloatingButton />
