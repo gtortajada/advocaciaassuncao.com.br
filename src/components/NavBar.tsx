@@ -1,71 +1,87 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import {
   Box,
   Flex,
   HStack,
   IconButton,
-  Link,
-  Slide,
+  Drawer,
+  DrawerBody,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
   useDisclosure,
-  //Text,
-  useBreakpointValue,
+  VStack,
+  useBreakpointValue
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import Image from 'next/image';
-import NextLink from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 
-// Definição dos tipos
+// Navigation Items Type
 interface NavItem {
   label: string;
   href: string;
 }
 
-// Items da navegação
+// Navigation Items
 const NAV_ITEMS: NavItem[] = [
-  { label: 'Home', href: '/' },
-  { label: 'Áreas de Atuação', href: '/areas' },
-  { label: 'Sobre Nós', href: '/sobre' },
-  { label: 'Perguntas Frequentes', href: '/faq' },
-  { label: 'Diferenciais', href: '/diferenciais' },
-  { label: 'Contato', href: '/contato' },
+  { label: 'Home', href: '#home' },
+  { label: 'Áreas de Atuação', href: '#services' },
+  { label: 'Depoimentos', href: '#testimonials' },
+  { label: 'Diferenciais', href: '#specialties' },
+  { label: 'Sobre Nós', href: '#about' },
+  { label: 'Contato', href: '#contact' },
 ];
 
-export const Navbar = () => {
+export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
-  const { isOpen: isMenuOpen, onToggle } = useDisclosure();
-  const router = useRouter();
-  
-  // Detecta scroll para mudança de estilo da navbar
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Responsividade
+  const scrollToSection = (href: string) => {
+    const elementId = href.replace('#', '');
+    const element = document.getElementById(elementId);
+    if (element) {
+      const navbarHeight = scrolled ? 75 : 125;
+      const elementPosition = element.offsetTop - navbarHeight;
+
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth',
+      });
+    }
+  }
+
+  // Responsiveness
   const isMobile = useBreakpointValue({ base: true, md: false });
 
-  // Estilos base da navbar
+  // Navbar base styles
   const navbarStyles = {
     height: scrolled ? '75px' : '125px',
     bg: scrolled ? '#800020' : 'transparent',
     transition: 'all 0.3s ease-in-out',
-    position: 'fixed',
     width: '100%',
     top: 0,
     zIndex: 1000,
   };
 
-  // Estilos do logo
+  // Logo dimensions
   const logoHeight = scrolled ? 80 : 100;
-  const logoWidth = (logoHeight * 3006) / 692; // Mantendo a proporção original
+  const logoWidth = (logoHeight * 3006) / 692; // Maintaining original proportion
 
   return (
-    <Box as="nav" {...navbarStyles}>
+    <Box as="nav" position="fixed" {...navbarStyles}>
       <Flex
         h="100%"
         alignItems="center"
@@ -75,41 +91,45 @@ export const Navbar = () => {
         mx="auto"
       >
         {/* Logo */}
-        <Box 
+        <Box
           position="relative"
           h={`${logoHeight}px`}
           w={`${logoWidth}px`}
           transition="all 0.3s ease-in-out"
         >
           <Image
-            src="/logo.png" // Ajuste para o caminho correto da sua logo
+            src="/logo.png"
             alt="Logo Advocacia Assunção"
-            layout="fill"
-            objectFit="contain"
+            fill
+            style={{ objectFit: 'contain' }}
             priority
           />
         </Box>
 
-        {/* Menu Desktop */}
+        {/* Desktop Menu */}
         {!isMobile && (
-          <HStack gap="50px">
+          <HStack spacing="50px">
             {NAV_ITEMS.map((item) => (
-              <Link
+              <Box
                 key={item.href}
-                as={NextLink}
-                href={item.href}
+                as="button"
+                onClick={() => scrollToSection(item.href)}
                 color="#C0C0C0"
                 fontSize="md"
                 fontWeight="medium"
                 position="relative"
+                bg="transparent"
                 _hover={{
                   color: "#FFD700",
                   transform: "scale(1.05)",
+                  _after: {
+                    width: '100%',
+                  }
                 }}
                 _after={{
                   content: '""',
                   position: 'absolute',
-                  width: router.pathname === item.href ? '100%' : '0%',
+                  width: '0%',
                   height: '2px',
                   bottom: '-4px',
                   left: '0',
@@ -119,12 +139,12 @@ export const Navbar = () => {
                 transition="all 0.3s ease-in-out"
               >
                 {item.label}
-              </Link>
+              </Box>
             ))}
           </HStack>
         )}
 
-        {/* Botão Menu Mobile */}
+        {/* Mobile Menu Button */}
         {isMobile && (
           <IconButton
             aria-label="Abrir menu"
@@ -132,160 +152,55 @@ export const Navbar = () => {
             variant="ghost"
             color="#C0C0C0"
             _hover={{ color: "#FFD700" }}
-            onClick={onToggle}
+            onClick={onOpen}
           />
         )}
       </Flex>
 
-      {/* Menu Mobile */}
-      <Slide
-        direction="left"
-        in={isMenuOpen}
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '75%',
-          height: '100vh',
-          zIndex: 999,
-        }}
+      {/* Mobile Menu Drawer */}
+      <Drawer
+        isOpen={isOpen}
+        placement="left"
+        onClose={onClose}
+        size="xs"
       >
-        <Box
-          bg="rgba(0, 0, 0, 0.7)"
-          h="100%"
-          p={8}
-          pt={24}
-        >
-          <Flex
-            direction="column"
-            alignItems="flex-start"
-            gap={6}
-          >
-            {NAV_ITEMS.map((item) => (
-              <Link
-                key={item.href}
-                as={NextLink}
-                href={item.href}
-                color="#C0C0C0"
-                fontSize="xl"
-                fontWeight="medium"
-                w="full"
-                _hover={{
-                  color: "#FFD700",
-                  transform: "scale(1.05)",
-                }}
-                onClick={onToggle}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </Flex>
-        </Box>
-      </Slide>
+        <DrawerOverlay />
+        <DrawerContent bg="rgba(0, 0, 0, 0.9)">
+          <DrawerCloseButton color="#C0C0C0" _hover={{ color: "#FFD700" }} />
+          <DrawerHeader borderBottomWidth="1px" color="#C0C0C0">Menu</DrawerHeader>
 
-      {/* Overlay para fechar o menu mobile */}
-      {isMenuOpen && (
-        <Box
-          position="fixed"
-          top={0}
-          left="75%"
-          right={0}
-          bottom={0}
-          bg="transparent"
-          onClick={onToggle}
-          zIndex={998}
-        />
-      )}
+          <DrawerBody>
+            <VStack
+              spacing={6}
+              align="stretch"
+            >
+              {NAV_ITEMS.map((item) => (
+                <Box
+                  key={item.href}
+                  as="button"
+                  onClick={() => {
+                    scrollToSection(item.href);
+                    onClose();
+                  }}
+                  color="#C0C0C0"
+                  fontSize="xl"
+                  fontWeight="medium"
+                  bg="transparent"
+                  textAlign="left"
+                  _hover={{
+                    color: "#FFD700",
+                    transform: "scale(1.05)",
+                  }}
+                >
+                  {item.label}
+                </Box>
+              ))}
+            </VStack>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
     </Box>
   );
 };
+
 export default Navbar;
-
-// "use client"
-// import { useState } from "react";
-// import Link from "next/link";
-// import { usePathname } from "next/navigation";
-// import { GiHamburgerMenu } from 'react-icons/gi'
-// import { MdOutlineClose } from 'react-icons/md'
-// import Image from "next/image";
-// import styles from './NavBar.module.css'
-
-// export default function NavBar() {
-//   const [showLinks, setShowLinks] = useState(false)
-//   const pathname = usePathname();
-
-//   const scrollToTop = () => {
-//     window.scrollTo({ top: 0, behavior: "smooth" });
-//   }
-
-//   const navLinks = [
-//     { href: "/", text: "Home" },
-//     { href: "/servicos", text: "Serviços" },
-//     { href: "/provasocial", text: "Prova Social" },
-//     { href: "/diferencial", text: "Diferenciais" },
-//     { href: "/sobreNos", text: "Sobre nós" },
-//   ]
-
-//   return (
-//     <nav className={styles.navbar}>
-//       <div className={styles.contentnav}>
-//         <div className={styles.logonav}>
-//           <Link
-//             href="#"
-//             onClick={() => scrollToTop}
-//             className={styles.logo}
-//           >
-//             <Image
-//               src="/variacaoLogo.png"
-//               alt="Logo da Advocacia Assunção"
-//               fill
-//               sizes="210px"
-//             />
-//           </Link>
-//         </div>
-//         <div className={styles.buttonsnav}>
-//           {navLinks.map((link) => {
-//             return (
-//               <Link
-//                 key={link.text}
-//                 href={link.href}
-//                 className={`${pathname === link.href ? styles.activeLink : ""}
-//                    ${styles.link}`}
-//               >
-//                 {link.text}
-//               </Link>
-//             );
-//           })}
-//         </div>
-//         <div className={styles.icone}>
-//           {showLinks ? (
-//             <button onClick={() => setShowLinks(false)}>
-//               <MdOutlineClose className={styles.iconeMd}/>
-//             </button>
-//           ) : (
-//             <button onClick={() => setShowLinks(true)}>
-//               <GiHamburgerMenu className={styles.iconeGi}/>
-//             </button>
-//           )}
-//         </div>
-//       </div>
-//       {showLinks ? (
-//         <div onClick={() => setShowLinks(false)} className={styles.linksnavmobile}>
-//           <div className={styles.contentnavmobile}>
-//             {navLinks.map((link) => {
-//               return (
-//                 <Link
-//                   key={link.text}
-//                   href={link.href}
-//                   className={`${pathname === link.href ? styles.activeLink : ''} ${styles.link}`}
-//                 >
-//                   {link.text}
-//                 </Link>
-//               );
-//             })}
-//           </div>
-//         </div>
-//       ) : undefined}
-//     </nav>
-//   )
-// }
