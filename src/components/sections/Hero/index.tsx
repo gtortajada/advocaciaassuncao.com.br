@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <>
       {/* Hero Section */}
-      <Box as="section" id="home" bg="gray.50" py={20}>
+      <Box as="section" id="home" bg="#f8f7f5" py={20}>
         <Container maxW="container.xl">
           <VStack gap={8} textAlign="center">
             <Heading 

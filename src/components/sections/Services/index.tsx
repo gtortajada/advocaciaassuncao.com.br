@@ -8,12 +8,13 @@ import {
     SimpleGrid,  
     Button, 
     VStack,
-    Accordion,
-    AccordionItem,
-    AccordionButton,
-    AccordionPanel,
-    AccordionIcon
   } from '@chakra-ui/react'
+  import {Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+  } from '@chakra-ui/accordion'
   
   export default function Services() {
     const leftRequests = [

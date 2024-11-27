@@ -1,29 +1,23 @@
-'use client'
-
 import './globals.css';
-// import type { Metadata } from "next";
-import Navbar from '../components/NavBar';
-import Footer from '/home/gtortajada/Documents/2024/jobs/advocaciaassuncao.com.br/src/components/Footer';
-// import FloatingButton from '../components/FloatingButton';
-import { Providers } from './providers';
+import type { Metadata } from "next";
+import dynamic from 'next/dynamic';
 
-// export const metadata: Metadata = {
-//   title: "Advocacia Assunção",
-//   description: "Advocacia Assunção",
-// };
+const ClientRoot = dynamic(() => import('./client-root'), {ssr: false});
 
-export default function RootLayout(props: { children: React.ReactNode }) {
-  const { children } = props
+export const metadata: Metadata = {
+  title: "Advocacia Assunção | Advocacia Trabalhista Bancária", // título que aparece na aba do navegador.
+  description: "Advocacia Assunção", // descrição para mecanismos de busca.
+  keywords: ["advocacia trabalhista", "advogado trabalhista", "advocacia", "advocacia assunção", // palavras-chaves para SEO.
+  ]
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html suppressHydrationWarning lang="pt-br">
-      <body >
-        <Providers>
-          <Navbar />
-          {children}
-          <Footer />
-          {/* <FloatingButton /> */}
-        </Providers>
-      </body>
-    </html>
-  )
+        <ClientRoot>{children}</ClientRoot>
+  );
 }
+

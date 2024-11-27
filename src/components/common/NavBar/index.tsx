@@ -107,7 +107,7 @@ export const Navbar: React.FC = () => {
 
         {/* Desktop Menu */}
         {!isMobile && (
-          <HStack spacing="50px">
+          <HStack gap="50px">
             {NAV_ITEMS.map((item) => (
               <Box
                 key={item.href}
@@ -170,7 +170,7 @@ export const Navbar: React.FC = () => {
 
           <DrawerBody>
             <VStack
-              spacing={6}
+              gap={6}
               align="stretch"
             >
               {NAV_ITEMS.map((item) => (
