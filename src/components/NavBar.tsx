@@ -19,14 +19,7 @@ import {
 import { HamburgerIcon } from '@chakra-ui/icons';
 import Image from 'next/image';
 
-// Navigation Items Type
-interface NavItem {
-  label: string;
-  href: string;
-}
-
-// Navigation Items
-const NAV_ITEMS: NavItem[] = [
+const NAV_ITEMS = [
   { label: 'Home', href: '#home' },
   { label: 'Áreas de Atuação', href: '#services' },
   { label: 'Depoimentos', href: '#testimonials' },
@@ -38,37 +31,26 @@ const NAV_ITEMS: NavItem[] = [
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const isMobile = useBreakpointValue({ base: true, md: false });
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToSection = (href: string) => {
-    const elementId = href.replace('#', '');
-    const element = document.getElementById(elementId);
+    const element = document.getElementById(href.replace('#', ''));
     if (element) {
       const navbarHeight = scrolled ? 75 : 125;
-      const elementPosition = element.offsetTop - navbarHeight;
-
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth',
-      });
+      window.scrollTo({ top: element.offsetTop - navbarHeight, behavior: 'smooth' });
     }
-  }
+  };
 
-  // Responsiveness
-  const isMobile = useBreakpointValue({ base: true, md: false });
-
-  // Navbar base styles
+  // Navbar styles
   const navbarStyles = {
     height: scrolled ? '75px' : '125px',
-    bg: scrolled ? '#800020' : 'transparent',
+    bg: scrolled ? '#2e1012' : 'transparent',
     transition: 'all 0.3s ease-in-out',
     width: '100%',
     top: 0,
@@ -76,8 +58,9 @@ export const Navbar: React.FC = () => {
   };
 
   // Logo dimensions
-  const logoHeight = scrolled ? 80 : 100;
-  const logoWidth = (logoHeight * 3006) / 692; // Maintaining original proportion
+  const logoHeight = isMobile ? 80 : 150;
+  const logoWidth = isMobile ? (logoHeight * 1843) / 300 : (logoHeight * 3006) / 692; // Maintaining original proportion
+  const logoSrc = scrolled ? '/logo-horizontal.png' : '/logo-quadrada.png';
 
   return (
     <Box as="nav" position="fixed" {...navbarStyles}>
@@ -97,7 +80,7 @@ export const Navbar: React.FC = () => {
           transition="all 0.3s ease-in-out"
         >
           <Image
-            src="/logo.png"
+            src={logoSrc}
             alt="Logo Advocacia Assunção"
             fill
             style={{ objectFit: 'contain' }}
@@ -107,7 +90,7 @@ export const Navbar: React.FC = () => {
 
         {/* Desktop Menu */}
         {!isMobile && (
-          <HStack spacing="50px">
+          <HStack spacing="50px" pt={4}>
             {NAV_ITEMS.map((item) => (
               <Box
                 key={item.href}
@@ -116,14 +99,10 @@ export const Navbar: React.FC = () => {
                 color="#C0C0C0"
                 fontSize="md"
                 fontWeight="medium"
-                position="relative"
-                bg="transparent"
                 _hover={{
                   color: "#FFD700",
                   transform: "scale(1.05)",
-                  _after: {
-                    width: '100%',
-                  }
+                  _after: { width: '100%' }
                 }}
                 _after={{
                   content: '""',
@@ -157,22 +136,13 @@ export const Navbar: React.FC = () => {
       </Flex>
 
       {/* Mobile Menu Drawer */}
-      <Drawer
-        isOpen={isOpen}
-        placement="left"
-        onClose={onClose}
-        size="xs"
-      >
+      <Drawer isOpen={isOpen} placement="left" onClose={onClose} size="xs">
         <DrawerOverlay />
         <DrawerContent bg="rgba(0, 0, 0, 0.9)">
           <DrawerCloseButton color="#C0C0C0" _hover={{ color: "#FFD700" }} />
           <DrawerHeader borderBottomWidth="1px" color="#C0C0C0">Menu</DrawerHeader>
-
           <DrawerBody>
-            <VStack
-              spacing={6}
-              align="stretch"
-            >
+            <VStack spacing={6} align="stretch">
               {NAV_ITEMS.map((item) => (
                 <Box
                   key={item.href}
@@ -186,10 +156,7 @@ export const Navbar: React.FC = () => {
                   fontWeight="medium"
                   bg="transparent"
                   textAlign="left"
-                  _hover={{
-                    color: "#FFD700",
-                    transform: "scale(1.05)",
-                  }}
+                  _hover={{ color: "#FFD700", transform: "scale(1.05)" }}
                 >
                   {item.label}
                 </Box>

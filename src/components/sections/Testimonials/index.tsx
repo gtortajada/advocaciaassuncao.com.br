@@ -1,14 +1,11 @@
-{/* Prova Social Section */}
-// src/components/sections/Testimonials/index.tsx
 import { Box, Container, Heading, Text, SimpleGrid, VStack } from '@chakra-ui/react'
 
 type TestimonialProps = {
   text: string
   name: string
-  case: string
 }
 
-const TestimonialCard = ({ text, name, case: caseType }: TestimonialProps) => (
+const TestimonialCard = ({ text, name}: TestimonialProps) => (
   <Box
     bg="white"
     p={8}
@@ -24,9 +21,6 @@ const TestimonialCard = ({ text, name, case: caseType }: TestimonialProps) => (
         <Text fontWeight="bold" color="gray.800">
           {name}
         </Text>
-        <Text fontSize="sm" color="gray.600">
-          {caseType}
-        </Text>
       </VStack>
     </VStack>
   </Box>
@@ -35,19 +29,28 @@ const TestimonialCard = ({ text, name, case: caseType }: TestimonialProps) => (
 export default function Testimonials() {
   const testimonials = [
     {
-      text: "Sou muito grato ao João, excelente atendimento e dedicação ao caso, Sou muito grato ao João, excelente atendimento e dedicação ao caso.",
-      name: "José da Silva, Campo Grande, MS",
-      case: "Causa de adicional de transferência"
+      text: "Fiquei muito feliz com seu empenho no caso, sempre transparente e resolvendo o processo de forma rápida.",
+      name: "Thiago C.",
     },
     {
-      text: "Sou muito grato ao João, excelente atendimento e dedicação ao caso, Sou muito grato ao João, excelente atendimento e dedicação ao caso.",
-      name: "José da Silva, Campo Grande, MS",
-      case: "Causa de adicional de transferência"
+      text: "Achei muito bom que resolvemos o processo de forma rápida, sem desgaste e fazendo um ótimo acordo!",
+      name: "Jessica C.",
     },
     {
-      text: "Sou muito grato ao João, excelente atendimento e dedicação ao caso, Sou muito grato ao João, excelente atendimento e dedicação ao caso.",
-      name: "José da Silva, Campo Grande, MS",
-      case: "Causa de adicional de transferência"
+      text: "Muito obrigada pela dedicação e transparência, um excelente profissional! ",
+      name: "Gilcele",
+    },
+    {
+      text: "Deus abençoe, muito obrigada pela força e por tudo ter dado certo no meu processo.",
+      name: "Patrícia",
+    },
+    {
+      text: "Muito obrigada doutor, foi exatamente como combinamos, com respeito e transparência.",
+      name: "Sandra",
+    },
+    {
+      text: "Tudo foi resolvido de forma tranquila e sem estresse, obrigada pela dedicação. ",
+      name: "Priscila",
     }
   ]
 
@@ -79,7 +82,6 @@ export default function Testimonials() {
                 key={index}
                 text={testimonial.text}
                 name={testimonial.name}
-                case={testimonial.case}
               />
             ))}
           </SimpleGrid>
@@ -88,26 +90,3 @@ export default function Testimonials() {
     </Box>
   )
 }
-
-{/* <section id="provasocial" className={styles.provasocial}>
-<div className={styles.contentprovasocial}>
-  <h3 className={styles.tituloprovasocial}>O QUE NOSSOS CLIENTES DIZEM</h3>
-  <div className={styles.depoimentos}>
-    <div className={styles.depoimento1}>
-      <p className={styles.textodepoimento}>Sou muito grato ao João, excelente <br />atendimento e dedicação ao caso,<br /> Sou muito grato ao João, excelente <br />atendimento e dedicação ao caso.</p>
-      <p className={styles.nomedepoimento}>Jośe da Silva, Campo Grande, MS</p>
-      <p className={styles.pedidodepoimento}>Causa de adicional de transferência</p>
-    </div>
-    <div className={styles.depoimento1}>
-      <p className={styles.textodepoimento}>Sou muito grato ao João, excelente <br />atendimento e dedicação ao caso,<br /> Sou muito grato ao João, excelente <br />atendimento e dedicação ao caso.</p>
-      <p className={styles.nomedepoimento}>Jośe da Silva, Campo Grande, MS</p>
-      <p className={styles.pedidodepoimento}>Causa de adicional de transferência</p>
-    </div>
-    <div className={styles.depoimento1}>
-      <p className={styles.textodepoimento}>Sou muito grato ao João, excelente <br />atendimento e dedicação ao caso,<br /> Sou muito grato ao João, excelente <br />atendimento e dedicação ao caso.</p>
-      <p className={styles.nomedepoimento}>Jośe da Silva, Campo Grande, MS</p>
-      <p className={styles.pedidodepoimento}>Causa de adicional de transferência</p>
-    </div>
-  </div>
-</div>
-</section> */}
