@@ -43,7 +43,7 @@ export default function AboutUs() {
                transition="all 0.3s ease"
                _hover={{
                  '& > div': {
-                   opacity: 1,
+                   opacity: 0.7,
                    bg: 'rgba(0, 0, 0, 0.8)'
                  }
                }}

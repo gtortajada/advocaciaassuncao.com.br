@@ -38,19 +38,19 @@ export default function Testimonials() {
     },
     {
       text: "Muito obrigada pela dedicação e transparência, um excelente profissional! ",
-      name: "Gilcele",
+      name: "Gilcele D.",
     },
     {
       text: "Deus abençoe, muito obrigada pela força e por tudo ter dado certo no meu processo.",
-      name: "Patrícia",
+      name: "Patrícia C.",
     },
     {
       text: "Muito obrigada doutor, foi exatamente como combinamos, com respeito e transparência.",
-      name: "Sandra",
+      name: "Sandra L.",
     },
     {
       text: "Tudo foi resolvido de forma tranquila e sem estresse, obrigada pela dedicação. ",
-      name: "Priscila",
+      name: "Priscila A.",
     }
   ]
 

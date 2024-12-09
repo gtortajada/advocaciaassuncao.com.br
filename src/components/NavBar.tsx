@@ -14,7 +14,8 @@ import {
   DrawerCloseButton,
   useDisclosure,
   VStack,
-  useBreakpointValue
+  useBreakpointValue,
+  Link
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import Image from 'next/image';
@@ -30,11 +31,32 @@ const NAV_ITEMS = [
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const isMobile = useBreakpointValue({ base: true, md: false });
+  const isMobileOrTablet = useBreakpointValue({ base: true, lg: false });
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+
+      // Detectar seção ativa
+      const sections = NAV_ITEMS.map(item => item.href.replace('#', ''));
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetBottom = offsetTop + element.offsetHeight;
+
+          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -44,10 +66,11 @@ export const Navbar: React.FC = () => {
     if (element) {
       const navbarHeight = scrolled ? 75 : 125;
       window.scrollTo({ top: element.offsetTop - navbarHeight, behavior: 'smooth' });
+      setActiveSection(href.replace('#', ''));
+      if (isOpen) onClose();
     }
   };
 
-  // Navbar styles
   const navbarStyles = {
     height: scrolled ? '75px' : '125px',
     bg: scrolled ? '#2e1012' : 'transparent',
@@ -57,106 +80,147 @@ export const Navbar: React.FC = () => {
     zIndex: 1000,
   };
 
-  // Logo dimensions
-  const logoHeight = isMobile ? 80 : 150;
-  const logoWidth = isMobile ? (logoHeight * 1843) / 300 : (logoHeight * 3006) / 692; // Maintaining original proportion
-  const logoSrc = scrolled ? '/logo-horizontal.png' : '/logo-quadrada.png';
+  const getLogoSize = () => {
+    if (isMobileOrTablet) {
+      const height = scrolled ? 60 : 90;
+      return {
+        height,
+        width: height,
+        src: '/logo-icone.png'
+      };
+    } else {
+      const height = scrolled ? 60 : 90;
+      const width = (height * 1843) / 300;
+      return {
+        height,
+        width,
+        src: '/logo-horizontal.png'
+      };
+    }
+  };
+
+  const logoSize = getLogoSize();
 
   return (
     <Box as="nav" position="fixed" {...navbarStyles}>
       <Flex
         h="100%"
         alignItems="center"
-        justifyContent="space-between"
         px={{ base: 4, md: 8 }}
         maxW="1400px"
         mx="auto"
       >
-        {/* Logo */}
-        <Box
-          position="relative"
-          h={`${logoHeight}px`}
-          w={`${logoWidth}px`}
-          transition="all 0.3s ease-in-out"
-        >
-          <Image
-            src={logoSrc}
-            alt="Logo Advocacia Assunção"
-            fill
-            style={{ objectFit: 'contain' }}
-            priority
-          />
-        </Box>
+        <Flex flex={1} justify="flex-start">
+          <Link
+            onClick={() => scrollToSection('#home')}
+            cursor="pointer"
+            _hover={{ opacity: 0.8 }}
+            transition="opacity 0.3s ease-in-out"
+            marginRight={{ base: 4, lg: 12 }}
+          >
+            <Box
+              position="relative"
+              h={`${logoSize.height}px`}
+              w={`${logoSize.width}px`}
+              transition="all 0.3s ease-in-out"
+            >
+              <Image
+                src={logoSize.src}
+                alt="Logo Advocacia Assunção"
+                fill
+                style={{ objectFit: 'contain' }}
+                priority
+              />
+            </Box>
+          </Link>
 
-        {/* Desktop Menu */}
-        {!isMobile && (
-          <HStack spacing="50px" pt={4}>
-            {NAV_ITEMS.map((item) => (
-              <Box
-                key={item.href}
-                as="button"
-                onClick={() => scrollToSection(item.href)}
-                color="#C0C0C0"
-                fontSize="md"
-                fontWeight="medium"
-                _hover={{
-                  color: "#FFD700",
-                  transform: "scale(1.05)",
-                  _after: { width: '100%' }
-                }}
-                _after={{
-                  content: '""',
-                  position: 'absolute',
-                  width: '0%',
-                  height: '2px',
-                  bottom: '-4px',
-                  left: '0',
-                  bg: "#FFD700",
-                  transition: 'all 0.3s ease-in-out',
-                }}
-                transition="all 0.3s ease-in-out"
-              >
-                {item.label}
-              </Box>
-            ))}
-          </HStack>
-        )}
-
-        {/* Mobile Menu Button */}
-        {isMobile && (
-          <IconButton
-            aria-label="Abrir menu"
-            icon={<HamburgerIcon />}
-            variant="ghost"
-            color="#C0C0C0"
-            _hover={{ color: "#FFD700" }}
-            onClick={onOpen}
-          />
-        )}
-      </Flex>
-
-      {/* Mobile Menu Drawer */}
-      <Drawer isOpen={isOpen} placement="left" onClose={onClose} size="xs">
-        <DrawerOverlay />
-        <DrawerContent bg="rgba(0, 0, 0, 0.9)">
-          <DrawerCloseButton color="#C0C0C0" _hover={{ color: "#FFD700" }} />
-          <DrawerHeader borderBottomWidth="1px" color="#C0C0C0">Menu</DrawerHeader>
-          <DrawerBody>
-            <VStack spacing={6} align="stretch">
+          {!isMobileOrTablet && (
+            <HStack spacing="30px" pt={0}>
               {NAV_ITEMS.map((item) => (
                 <Box
                   key={item.href}
                   as="button"
-                  onClick={() => {
-                    scrollToSection(item.href);
-                    onClose();
+                  onClick={() => scrollToSection(item.href)}
+                  color={activeSection === item.href.replace('#', '') ? "#FFD700" : "#C0C0C0"}
+                  fontSize="sm"
+                  fontWeight="medium"
+                  whiteSpace="nowrap"
+                  position="relative"
+                  _hover={{
+                    color: "#FFD700",
+                    transform: "scale(1.05)",
+                    _after: { width: '100%' }
                   }}
-                  color="#C0C0C0"
-                  fontSize="xl"
+                  _after={{
+                    content: '""',
+                    position: 'absolute',
+                    width: activeSection === item.href.replace('#', '') ? '100%' : '0%',
+                    height: '2px',
+                    bottom: '-4px',
+                    left: '0',
+                    bg: "#FFD700",
+                    transition: 'all 0.3s ease-in-out',
+                  }}
+                  transition="all 0.3s ease-in-out"
+                >
+                  {item.label}
+                </Box>
+              ))}
+            </HStack>
+          )}
+        </Flex>
+
+        {isMobileOrTablet && (
+          <IconButton
+            aria-label="Abrir menu"
+            icon={<HamburgerIcon color="#C0C0C0" boxSize={6} />}
+            variant="ghost"
+            size="lg"
+            onClick={onOpen}
+            _hover={{ color: "#FFD700" }}
+            bg="transparent"
+            display="flex"
+          />
+        )}
+      </Flex>
+
+      <Drawer 
+        isOpen={isOpen} 
+        placement="left" 
+        onClose={onClose} 
+        size={{ base: "xs", md: "sm" }}
+      >
+        <DrawerOverlay />
+        <DrawerContent bg="rgba(46, 16, 18, 0.98)">
+          <DrawerCloseButton 
+            color="#C0C0C0" 
+            _hover={{ color: "#FFD700" }} 
+            size="lg"
+            mt={2}
+          />
+          <DrawerHeader borderBottomWidth="1px" color="#C0C0C0" fontSize="xl">
+            Menu
+          </DrawerHeader>
+          <DrawerBody mt={4}>
+            <VStack spacing={8} align="stretch">
+              {NAV_ITEMS.map((item) => (
+                <Box
+                  key={item.href}
+                  as="button"
+                  onClick={() => scrollToSection(item.href)}
+                  color={activeSection === item.href.replace('#', '') ? "#FFD700" : "#C0C0C0"}
+                  fontSize={{ base: "lg", md: "xl" }}
                   fontWeight="medium"
                   bg="transparent"
                   textAlign="left"
-                  _hover={{ color: "#FFD700", transform: "scale(1.05)" }}
+                  width="100%"
+                  py={2}
+                  _hover={{ 
+                    color: "#FFD700", 
+                    transform: "translateX(10px)",
+                    transition: "all 0.3s ease-in-out"
+                  }}
+                  transition="all 0.3s ease-in-out"
                 >
                   {item.label}
                 </Box>

@@ -1,12 +1,15 @@
-import { Box, Container, Heading, Text, SimpleGrid, VStack } from '@chakra-ui/react'
+import { Box, Container, Heading, Text, SimpleGrid, VStack, Image } from '@chakra-ui/react'
 
 const SpecialtyCard = ({ title, description }: { title: string; description: string }) => (
   <Box
-    h="full"
+    w="full"
+    minH={{ base: "200px", md: "250px" }}
+    maxW={{ base: "300px", md: "400px" }}
     bg="white"
     boxShadow="lg"
     borderRadius="lg"
     opacity={0.8}
+    p={6}
     _hover={{
       opacity: 1,
       transform: 'translateY(-5px)',
@@ -15,10 +18,16 @@ const SpecialtyCard = ({ title, description }: { title: string; description: str
     textAlign="center"
   >
     <VStack gap={4} align="center">
+      <Image 
+        src="/icons/recursos.png"
+        alt="Recursos icon"
+        width={50}
+        height={50}
+      />
       <Heading
         as="h3"
         size="md"
-        color="blue.600"
+        color="black"
       >
         {title}
       </Heading>
@@ -59,14 +68,13 @@ export default function Specialties() {
       py={16}
       bg="#E9DAC6"
     >
-      <Container maxW="container.xl">
+      <Container maxW="container.xl" px={4}>
         <VStack gap={12}>
-          {/* Header */}
           <VStack gap={4} textAlign="center">
             <Heading
               as="h4"
               size="md"
-              color="#ffe4a2"
+              color="black"
             >
               ESPECIALIDADES
             </Heading>
@@ -78,11 +86,12 @@ export default function Specialties() {
               POR QUE ESCOLHER A ADVOCACIA ASSUNÇÃO?
             </Heading>
           </VStack>
-          {/* Cards */}
           <SimpleGrid
             columns={{ base: 1, md: 2 }}
-            gap={8}
+            gap={4}
             w="full"
+            justifyItems="center"
+            alignItems="center"
           >
             {specialties.map((specialty, index) => (
               <SpecialtyCard
