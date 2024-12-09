@@ -2,9 +2,8 @@ import { Box, Container, Heading, Text, SimpleGrid, VStack, Image } from '@chakr
 
 const SpecialtyCard = ({ title, description }: { title: string; description: string }) => (
   <Box
-    w="full"
+    width={{ base: "300px", sm: "340px", md: "340px" , lg: "400px" }}
     minH={{ base: "200px", md: "250px" }}
-    maxW={{ base: "300px", md: "400px" }}
     bg="white"
     boxShadow="lg"
     borderRadius="lg"
@@ -18,7 +17,7 @@ const SpecialtyCard = ({ title, description }: { title: string; description: str
     textAlign="center"
   >
     <VStack gap={4} align="center">
-      <Image 
+      <Image
         src="/icons/recursos.png"
         alt="Recursos icon"
         width={50}
@@ -76,7 +75,7 @@ export default function Specialties() {
               size="md"
               color="black"
             >
-              ESPECIALIDADES
+              DIFERENCIAIS
             </Heading>
             <Heading
               as="h2"
@@ -89,7 +88,7 @@ export default function Specialties() {
           <SimpleGrid
             columns={{ base: 1, md: 2 }}
             gap={4}
-            w="full"
+
             justifyItems="center"
             alignItems="center"
           >
