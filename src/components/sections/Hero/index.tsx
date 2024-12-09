@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Box, Container, Heading, Button, SimpleGrid, VStack, Divider } from '@chakra-ui/react'
+import { Box, Container, Heading, Button, VStack, Divider } from '@chakra-ui/react'
 
 const HomePage = () => {
   return (
@@ -103,7 +103,7 @@ const HomePage = () => {
             </Button>
           </VStack>
 
-          <SimpleGrid
+          {/* <SimpleGrid
             columns={{ base: 1, md: 3 }}
             gap={5}
             px={{ base: 4, md: 0 }}
@@ -169,7 +169,7 @@ const HomePage = () => {
               />
               <Heading size="sm">Recursos até a última instância</Heading>
             </Box>
-          </SimpleGrid>
+          </SimpleGrid> */}
         </Container>
       </Box>
     </>

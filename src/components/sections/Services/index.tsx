@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Box,
   Container,
@@ -13,16 +12,24 @@ import {
   HStack,
   Text,
 } from '@chakra-ui/react';
-import { SendHorizontal } from 'lucide-react';
+import { SendHorizontal, ChevronDown } from 'lucide-react';
 
-const RequestItem = ({ text }) => (
+interface RequestItemProps {
+  text: string;
+}
+
+interface BankItemProps {
+  item: string;
+}
+
+const RequestItem = ({ text }: RequestItemProps) => (
   <HStack spacing={3} justify="left" w="full">
     <SendHorizontal size={12} color="#2e1012" />
     <Text>{text}</Text>
   </HStack>
 );
 
-const BankItem = ({ item }) => (
+const BankItem = ({ item }: BankItemProps) => (
   <Text>{item}</Text>
 );
 
@@ -142,11 +149,11 @@ export default function Services() {
             PRINCIPAIS PEDIDOS BANCÁRIOS
           </Heading>
 
-          <Grid 
-            templateColumns={{ 
+          <Grid
+            templateColumns={{
               base: "1fr",
-              md: "repeat(2, 1fr)", 
-              lg: "repeat(3, 1fr)" 
+              md: "repeat(2, 1fr)",
+              lg: "repeat(3, 1fr)"
             }}
             gap={4}
             w="full"
@@ -161,30 +168,46 @@ export default function Services() {
             PEDIDOS ESPECÍFICOS DE CADA BANCO
           </Heading>
 
-          <Accordion allowToggle>
+          <Accordion defaultIndex={[0]} allowToggle w="full">
             {banks.map((bank, index) => (
               <AccordionItem key={index}>
-                <h2>
-                  <AccordionButton py={4} _hover={{ bg: 'gray.50' }}>
-                    <Box flex="1" textAlign="center" fontWeight="bold">
-                      {bank.name}
-                    </Box>
-                  </AccordionButton>
-                </h2>
-                <AccordionPanel pb={4}>
-                  <Grid templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }} gap={6}>
-                    <VStack align="stretch" gap={2}>
-                      {bank.leftColumn?.map((item, idx) => (
-                        <BankItem key={idx} item={item} />
-                      ))}
-                    </VStack>
-                    <VStack align="stretch" gap={2}>
-                      {bank.rightColumn?.map((item, idx) => (
-                        <BankItem key={idx} item={item} />
-                      ))}
-                    </VStack>
-                  </Grid>
-                </AccordionPanel>
+                {({ isExpanded }) => (
+                  <>
+                    <h2>
+                      <AccordionButton
+                        py={4}
+                        _hover={{ bg: 'gray.50' }}
+                        display="flex"
+                        justifyContent="space-between"
+                        alignItems="center"
+                      >
+                        <Box flex="1" textAlign="center" fontWeight="bold">
+                          {bank.name}
+                        </Box>
+                        <Box
+                          transform={isExpanded ? 'rotate(-180deg)' : 'rotate(0)'}
+                          transition="transform 0.2s"
+                        >
+                          <ChevronDown size={20} />
+                        </Box>
+                      </AccordionButton>
+                    </h2>
+                    <AccordionPanel pb={4}>
+                      <Grid templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }} gap={6}>
+                        <VStack align="stretch" gap={2}>
+                          {bank.leftColumn?.map((item, idx) => (
+                            <BankItem key={idx} item={item} />
+                          ))}
+                        </VStack>
+                        <VStack align="stretch" gap={2}>
+                          {bank.rightColumn?.map((item, idx) => (
+                            <BankItem key={idx} item={item} />
+                          ))}
+                        </VStack>
+                      </Grid>
+                    </AccordionPanel>
+                  </>
+                )}
               </AccordionItem>
             ))}
           </Accordion>
