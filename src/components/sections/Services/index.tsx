@@ -144,7 +144,15 @@ export default function Services() {
   return (
     <Box as="section" id="services" py={16} bg="gray.50">
       <Container maxW="container.xl">
-        <VStack gap={12}>
+        <VStack gap={8}>
+          <Heading
+            as="h2"
+            fontSize="sm"
+            color="#2e1012"
+            textTransform="uppercase"
+          >
+            Áreas de atuação
+          </Heading>
           <Heading as="h2" size="lg" textAlign="center" color="gray.800">
             PRINCIPAIS PEDIDOS BANCÁRIOS
           </Heading>
@@ -163,54 +171,57 @@ export default function Services() {
               <RequestItem key={index} text={request} />
             ))}
           </Grid>
+          
 
           <Heading as="h2" size="lg" textAlign="center" color="gray.800">
             PEDIDOS ESPECÍFICOS DE CADA BANCO
           </Heading>
 
-          <Accordion defaultIndex={[0]} allowToggle w="full">
-            {banks.map((bank, index) => (
-              <AccordionItem key={index}>
-                {({ isExpanded }) => (
-                  <>
-                    <h2>
-                      <AccordionButton
-                        py={4}
-                        _hover={{ bg: 'gray.50' }}
-                        display="flex"
-                        justifyContent="space-between"
-                        alignItems="center"
-                      >
-                        <Box flex="1" textAlign="center" fontWeight="bold">
-                          {bank.name}
-                        </Box>
-                        <Box
-                          transform={isExpanded ? 'rotate(-180deg)' : 'rotate(0)'}
-                          transition="transform 0.2s"
+          <Box maxW="4xl" w="full" mx="auto">
+            <Accordion defaultIndex={[0]} allowToggle w="auto">
+              {banks.map((bank, index) => (
+                <AccordionItem key={index}>
+                  {({ isExpanded }) => (
+                    <>
+                      <h2>
+                        <AccordionButton
+                          py={4}
+                          _hover={{ bg: 'gray.50' }}
+                          display="flex"
+                          justifyContent="space-between"
+                          alignItems="center"
                         >
-                          <ChevronDown size={20} />
-                        </Box>
-                      </AccordionButton>
-                    </h2>
-                    <AccordionPanel pb={4}>
-                      <Grid templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }} gap={6}>
-                        <VStack align="stretch" gap={2}>
-                          {bank.leftColumn?.map((item, idx) => (
-                            <BankItem key={idx} item={item} />
-                          ))}
-                        </VStack>
-                        <VStack align="stretch" gap={2}>
-                          {bank.rightColumn?.map((item, idx) => (
-                            <BankItem key={idx} item={item} />
-                          ))}
-                        </VStack>
-                      </Grid>
-                    </AccordionPanel>
-                  </>
-                )}
-              </AccordionItem>
-            ))}
-          </Accordion>
+                          <Box flex="1" textAlign="center" fontWeight="bold">
+                            {bank.name}
+                          </Box>
+                          <Box
+                            transform={isExpanded ? 'rotate(-180deg)' : 'rotate(0)'}
+                            transition="transform 0.2s"
+                          >
+                            <ChevronDown size={20} />
+                          </Box>
+                        </AccordionButton>
+                      </h2>
+                      <AccordionPanel pb={4}>
+                        <Grid templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)' }} gap={6}>
+                          <VStack align="stretch" gap={2}>
+                            {bank.leftColumn?.map((item, idx) => (
+                              <BankItem key={idx} item={item} />
+                            ))}
+                          </VStack>
+                          <VStack align="stretch" gap={2}>
+                            {bank.rightColumn?.map((item, idx) => (
+                              <BankItem key={idx} item={item} />
+                            ))}
+                          </VStack>
+                        </Grid>
+                      </AccordionPanel>
+                    </>
+                  )}
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </Box>
 
           <Button
             size="lg"

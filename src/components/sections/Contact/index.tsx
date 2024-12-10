@@ -7,7 +7,7 @@ export default function Contact() {
      as="section" 
      id="contact"
      py={16}
-     bg="#E9DAC6"
+     bg="#2e1012"
    >
      <Container maxW="container.xl">
        <VStack

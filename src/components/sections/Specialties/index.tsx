@@ -2,7 +2,7 @@ import { Box, Container, Heading, Text, SimpleGrid, VStack, Image } from '@chakr
 
 const SpecialtyCard = ({ title, description }: { title: string; description: string }) => (
   <Box
-    width={{ base: "300px", sm: "340px", md: "340px" , lg: "400px" }}
+    width={{ base: "300px", sm: "340px", md: "340px", lg: "400px" }}
     minH={{ base: "200px", md: "250px" }}
     bg="white"
     boxShadow="lg"
@@ -65,20 +65,21 @@ export default function Specialties() {
       as="section"
       id="specialties"
       py={16}
-      bg="#E9DAC6"
+      bg="#2e1012"
     >
       <Container maxW="container.xl" px={4}>
         <VStack gap={12}>
           <VStack gap={4} textAlign="center">
             <Heading
-              as="h4"
-              size="md"
-              color="black"
+              as="h2"
+              fontSize="xs"
+              color="#2e1012"
+              textTransform="uppercase"
             >
-              DIFERENCIAIS
+              Diferenciais
             </Heading>
             <Heading
-              as="h2"
+              as="h3"
               size="lg"
               color="#2e1012"
             >

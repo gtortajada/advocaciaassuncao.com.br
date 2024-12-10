@@ -59,10 +59,18 @@ export default function Testimonials() {
       as="section"
       id="testimonials"
       py={16}
-      bg="gray.50"
+      bg="#E9DAC6"
     >
       <Container maxW="container.xl">
         <VStack gap={12}>
+        <Heading
+              as="h2"
+              fontSize="xs"
+              color="#2e1012"
+              textTransform="uppercase"
+            >
+              Depoimentos
+            </Heading>
           <Heading
             as="h3"
             size="lg"

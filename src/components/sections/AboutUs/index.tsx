@@ -7,7 +7,7 @@ export default function AboutUs() {
      as="section"
      id="about"
      py={16}
-     bg="#2e1012"
+     bg="#E9DAC6"
    >
      <Container maxW="container.xl">
        <VStack gap={4} align="center">

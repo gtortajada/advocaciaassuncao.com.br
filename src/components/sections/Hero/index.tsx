@@ -56,39 +56,41 @@ const HomePage = () => {
           <VStack
             flex="1"
             gap={8}
-            textAlign={{ base: 'center', md: 'left' }}
+            textAlign={{ base: 'center', xl: 'left' }}
             justify="center"
-            alignItems={{ base: 'center', md: 'flex-start' }}
-            pl={{ base: 0, md: 20 }}
-            mt={{ base: "10vh", md: "15vh" }}
+            alignItems={{ base: 'center', xl: 'flex-start' }}
+            pl={{ base: 0, xl: 20 }}
+            mt={{ base: "10vh", xl: "5vh" }}
           >
-            <VStack alignItems={{ base: 'center', md: 'flex-start' }} gap={4} width="100%">
+            <VStack alignItems={{ base: 'center', xl: 'flex-start' }} gap={4} width="100%">
               <Box>
                 <Heading
-                  size={{ base: '3xl', md: '2xl' }}
+                  size={{ base: '3xl', xl: '2xl' }}
                   lineHeight="1.2"
                   maxW="3xl"
                   color="#ffe4a2"
                   fontFamily="var(--font-free-serif)"
-                  px={{ base: 4, md: 0 }}
+                  px={{ base: 4, xl: 0 }}
+                  letterSpacing="wide"
                 >
-                  Defendemos seus direitos trabalhistas < br />bancários com excelência.
+                  Defendemos seus direitos< br />trabalhistas bancários< br />com excelência.
                 </Heading>
                 <Divider
                   my={4}
                   borderColor="#ffe4a2"
-                  width={{ base: "80%", md: "60%" }}
+                  width={{ base: "80%", xl: "60%" }}
                   opacity={0.7}
-                  mx={{ base: "auto", md: 0 }}
+                  mx={{ base: "auto", xl: 0 }}
                 />
               </Box>
               <Heading
-                size={{ base: 'lg', md: 'lg' }}
+                size={{ base: 'lg', xl: 'lg' }}
                 lineHeight="1.2"
                 maxW="3xl"
                 color="white"
                 fontFamily="var(--font-montserrat)"
-                px={{ base: 4, md: 0 }}
+                fontWeight="normal"
+                px={{ base: 4, xl: 0 }}
               >
                 Atendemos todo o Brasil.<br />
                 Resultados comprovados!
@@ -96,10 +98,16 @@ const HomePage = () => {
             </VStack>
             <Button
               size="lg"
-              colorScheme="blue"
+              bg="#C0C0C0"
+              color="gray.800"
+              _hover={{
+                bg: "#A8A8A8",
+                boxShadow: "md"
+              }}
+              boxShadow="sm"
               onClick={() => window.open('https://wa.me/5544988592720', '_blank')}
             >
-              Fale com nosso especialista
+              Entre em contato
             </Button>
           </VStack>
 
