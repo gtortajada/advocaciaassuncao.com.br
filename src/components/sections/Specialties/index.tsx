@@ -72,7 +72,7 @@ export default function Specialties() {
           <VStack gap={4} textAlign="center">
             <Heading
               as="h2"
-              fontSize="xs"
+              fontSize="sm"
               color="#2e1012"
               textTransform="uppercase"
             >

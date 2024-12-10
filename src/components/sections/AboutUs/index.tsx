@@ -12,7 +12,7 @@ export default function AboutUs() {
      <Container maxW="container.xl">
        <VStack gap={4} align="center">
          <Text
-           fontSize="xs"
+           fontSize="sm"
            color="white"
            textTransform="uppercase"
          >

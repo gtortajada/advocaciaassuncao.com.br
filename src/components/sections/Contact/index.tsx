@@ -16,7 +16,7 @@ export default function Contact() {
          textAlign="center"
        >
          <Text
-           fontSize="xs"
+           fontSize="sm"
            color="#2e1012"
            textTransform="uppercase"
          >

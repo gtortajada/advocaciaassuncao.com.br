@@ -65,7 +65,7 @@ export default function Testimonials() {
         <VStack gap={12}>
         <Heading
               as="h2"
-              fontSize="xs"
+              fontSize="sm"
               color="#2e1012"
               textTransform="uppercase"
             >

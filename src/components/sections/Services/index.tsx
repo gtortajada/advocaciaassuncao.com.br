@@ -13,6 +13,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { SendHorizontal, ChevronDown } from 'lucide-react';
+import { useState } from 'react';
 
 interface RequestItemProps {
   text: string;
@@ -34,6 +35,8 @@ const BankItem = ({ item }: BankItemProps) => (
 );
 
 export default function Services() {
+  const [seeAllRequests, setSeeAllRequest] = useState(false);
+  console.log(seeAllRequests);
   const allRequests = [
     // Primeira coluna
     "HORAS EXTRAS (7ª e 8ª)",
@@ -63,6 +66,8 @@ export default function Services() {
     "ADICIONAL DE TRANSFERÊNCIA",
     "VENDA OBRIGATÓRIA DE FÉRIAS"
   ];
+
+  const displayedRequests = seeAllRequests ? allRequests : allRequests.slice(0, 6);
 
   const banks = [
     {
@@ -167,18 +172,31 @@ export default function Services() {
             w="full"
             autoFlow="row dense"
           >
-            {allRequests.map((request, index) => (
+            {displayedRequests.map((request, index) => (
               <RequestItem key={index} text={request} />
             ))}
           </Grid>
-          
+          {!seeAllRequests && <Button
+              size="md"
+              // bg="#C0C0C0"
+              // color="gray.800"
+              // _hover={{
+                // bg: "#A8A8A8",
+                // boxShadow: "md"
+              // }}
+              // boxShadow="sm"
+
+              onClick={() => setSeeAllRequest(true)}
+            >
+              Ver todos
+            </Button>}
 
           <Heading as="h2" size="lg" textAlign="center" color="gray.800">
             PEDIDOS ESPECÍFICOS DE CADA BANCO
           </Heading>
 
           <Box maxW="4xl" w="full" mx="auto">
-            <Accordion defaultIndex={[0]} allowToggle w="auto">
+            <Accordion allowToggle w="auto">
               {banks.map((bank, index) => (
                 <AccordionItem key={index}>
                   {({ isExpanded }) => (
@@ -229,7 +247,7 @@ export default function Services() {
             px={8}
             onClick={() => window.open('https://wa.me/5544988592720')}
           >
-            Fale com um especialista
+            Entre em contato
           </Button>
         </VStack>
       </Container>
