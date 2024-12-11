@@ -240,10 +240,10 @@ export default function Services() {
               ))}
             </Accordion>
           </Box>
-
           <Button
             size="lg"
-            colorScheme="blue"
+            bg="#edcb77"
+            color="black"
             px={8}
             onClick={() => window.open('https://wa.me/5544988592720')}
           >

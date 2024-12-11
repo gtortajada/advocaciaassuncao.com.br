@@ -73,7 +73,7 @@ export default function Specialties() {
             <Heading
               as="h2"
               fontSize="sm"
-              color="#2e1012"
+              color="#edcb77"
               textTransform="uppercase"
             >
               Diferenciais
@@ -81,7 +81,7 @@ export default function Specialties() {
             <Heading
               as="h3"
               size="lg"
-              color="#2e1012"
+              color="#f6ecdf"
             >
               POR QUE ESCOLHER A ADVOCACIA ASSUNÇÃO?
             </Heading>
