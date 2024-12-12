@@ -29,12 +29,12 @@ const NAV_ITEMS: NavItem[] = [
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   const fontSize = useBreakpointValue({ base: "lg", md: "xl" });
   const spacing = useBreakpointValue({ base: 8, md: 4 });
   const containerPadding = useBreakpointValue({ base: 4, md: 6 });
   const iconSize = useBreakpointValue({ base: 28, md: 24 });
-  
+
   const hoverStyle = {
     color: "#FFD700",
     transform: "scale(1.05)",
@@ -133,15 +133,20 @@ export const Footer = () => {
         </Grid>
 
         <Divider borderColor="white" borderWidth="1px" my={spacing} />
+        <Link
+          href="www.gtortajada.online"
+          isExternal
+          textDecoration="none">
+          <Text
+            textAlign="center"
+            fontSize={{ base: "18px", md: "16px" }}
+            _hover={{ transform: "scale(1.05)" }}
+            transition="transform 0.3s ease-in-out"
+          >
+            Copyright © {currentYear} by Gustavo Tortajada.
+          </Text>
+        </Link>
 
-        <Text
-          textAlign="center"
-          fontSize={{ base: "18px", md: "16px" }}
-          _hover={{ transform: "scale(1.05)" }}
-          transition="transform 0.3s ease-in-out"
-        >
-          Copyright © {currentYear} by Gustavo Tortajada.
-        </Text>
       </Container>
     </Box>
   );
