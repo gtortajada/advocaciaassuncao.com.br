@@ -135,7 +135,7 @@ export const Navbar: React.FC = () => {
           </Link>
 
           {!isMobileOrTablet && (
-            <HStack spacing="30px" pt={0}>
+            <HStack spacing="30px" pt={12}>
               {NAV_ITEMS.map((item) => (
                 <Box
                   key={item.href}
