@@ -1,6 +1,10 @@
 import { Box, Container, Heading, Text, SimpleGrid, VStack, Image } from '@chakra-ui/react'
 
-const SpecialtyCard = ({ title, description }: { title: string; description: string }) => (
+const SpecialtyCard = ({ title, description, iconSrc }: {
+  title: string;
+  description: string;
+  iconSrc: string;
+}) => (
   <Box
     width={{ base: "300px", sm: "340px", md: "340px", lg: "400px" }}
     minH={{ base: "200px", md: "250px" }}
@@ -18,8 +22,8 @@ const SpecialtyCard = ({ title, description }: { title: string; description: str
   >
     <VStack gap={4} align="center">
       <Image
-        src="/icons/recursos.png"
-        alt="Recursos icon"
+        src={iconSrc}
+        alt={`${title} icon`}
         width={50}
         height={50}
       />
@@ -44,19 +48,23 @@ export default function Specialties() {
   const specialties = [
     {
       title: "Foco nos resultados",
-      description: "Trabalhamos com determinação para alcançar resultados concretos e efetivos."
-    },
-    {
-      title: "Agilidade",
-      description: "Soluções rápidas e ágeis para cada situação, com foco na resolução do seu caso."
+      description: "Trabalhamos com determinação para alcançar resultados concretos e efetivos.",
+      iconSrc: "/icons/foco.png"
     },
     {
       title: "Profissionalismo",
-      description: "Comprometimento em cada detalhe do seu processo, assegurando atendimento de alto nível."
+      description: "Comprometimento em cada detalhe do seu processo, assegurando atendimento de alto nível.",
+      iconSrc: "/icons/profissionalismo.png"
     },
     {
-      title: "Disponibilidade",
-      description: "Estamos prontos para agir com rapidez e eficiência."
+      title: "Agilidade",
+      description: "Soluções rápidas e ágeis para cada situação, com foco na resolução do seu caso.",
+      iconSrc: "/icons/agilidade.png"
+    },
+    {
+      title: "Proatividade",
+      description: "Estamos prontos para agir com rapidez e eficiência.",
+      iconSrc: "/icons/agilidade.png"
     }
   ]
 
@@ -88,7 +96,7 @@ export default function Specialties() {
           </VStack>
           <SimpleGrid
             columns={{ base: 1, md: 2 }}
-            gap={4}
+            gap={8}
 
             justifyItems="center"
             alignItems="center"
@@ -98,6 +106,7 @@ export default function Specialties() {
                 key={index}
                 title={specialty.title}
                 description={specialty.description}
+                iconSrc={specialty.iconSrc}
               />
             ))}
           </SimpleGrid>
