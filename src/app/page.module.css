@@ -1,4 +1,17 @@
-.page {
+/*Sections*/
+
+@media (max-width: 768px) {
+  .section {
+    margin: 30px 0; /*Espaçamento para baixo e para cima de cada section */
+    min-height: 30vh; /*Cada section terá 60% da tela*/
+  }
+}
+
+/*Hero Section*/
+.hero {
+  background-image: url("/teste.jpg");
+  background-color: burlywood;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,19 +24,342 @@
 .div {
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: normal;
+  justify-content: center;
+  align-items: flex-start;
+
+  margin-left: 10%;
+  margin-right: 25%;
+  gap: 40px;
+
+  top: 40%;
+  left: 50%;
+
+  border: 3px solid greenyellow;
+}
+
+.buttonhero {
+  font-size: 20px;
+}
+
+.cards {
   align-items: center;
-  width: 80%;
-  max-width: 600px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: normal;
+  margin-top: -100px;
+  justify-content: center;
+
+  border: 3px solid greenyellow;
 }
 
-.fotologo {
+.card {
+  background-color: #BC8D43;
+  margin: 15px;
+  padding: 10px;
+}
+
+/*servicos Section*/
+.servicos {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0;
+
+  background-color: brown;
+}
+
+.servicoscontent {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.tituloservicos {
+  padding: 25px;
+  text-align: center;
+
+  border: 3px solid yellowgreen;
+}
+
+.pedidos {
+  gap: 20px;
+  display: flex;
+  padding: 25px;
+}
+
+.boxesq {
+  padding: 0px 10px;
+}
+
+.boxdir {
+  padding: 0px 10px;
+}
+
+.buttonservicos {
+  font-size: 20px;
+  padding: 10px;
+}
+
+.lista {
+  margin: 50px;
+  list-style-type: none;
+}
+
+.linhas {
+  padding: 5px
+}
+
+.bancos {
+  padding: 25px;
+}
+
+.banco {
+  padding: 5px;
+}
+
+@media (max-width: 768px) {
+  .pedidos {
+    flex-direction: column;
+    /*Transforma em coluna no mobile*/
+  }
+}
+
+/* provaSocial Section */
+.provasocial {
+  background-color: orchid;
+}
+
+.contentprovasocial {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-evenly;
+
+  padding-bottom: 35px;
+}
+
+.tituloprovasocial {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  padding: 25px
+}
+
+.depoimentos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.depoimento1,
+.depoimento2,
+.depoimento3 {
+  padding: 0px 35px;
+}
+
+.textodepoimento {
+  padding: 5px 0;
+}
+
+.nomedepoimento {
+  padding: 5px 0px;
+}
+
+/* diferencial Section */
+.diferencial {
+  background-color: tomato;
+}
+
+.contentdiferenciais {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  padding-bottom: 20px;
+}
+
+.headerdiferenciais {
+  text-align: center;
+  padding: 15px;
+}
+
+.h4 {
+  font-size: 10px;
+  padding: 10px;
+}
+
+.titulodiferenciais {
+  padding: 10px;
+}
+
+.cardsdiferenciais {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.cards1e2diferenciais {
+  padding: 0px 10px;
+}
+
+.card1 {
+  background-color: burlywood;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  padding: 5px;
+  margin-bottom: 30px;
+}
+
+.card2 {
+  background-color: burlywood;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  padding: 5px;
+}
+
+.cards3e4diferenciais {
+  padding: 0px 10px;
+}
+
+.card3 {
+  background-color: burlywood;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  padding: 5px;
+  margin-bottom: 30px;
+}
+
+.card4 {
+  background-color: burlywood;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  padding: 5px;
+}
+
+/* sobreNos Section */
+.sobrenos {
+  background-color: yellowgreen;
+}
+
+.contentsobrenos {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.headersobrenos {
+  text-align: center;
+  padding: 30px;
+}
+
+.corposobrenos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+.joao {
+  background-color: blue;
+  position: relative;
+  width: 30%;
+  height: 500px;
+  overflow: hidden;
+
+  padding: 30px
+}
+
+.imagejoao {
+  transition: transform 0.3s ease;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  margin-bottom: 20px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: background-color 0.3s ease;
 }
 
-.div p {
-  margin: 5px 0;
-  font-size: 1.2rem;
-  color: #fff;
+.textoimagemjoao {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.joao:hover .overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.joao:hover .textimagemjoao {
+  opacity: 1;
+  z-index: 1000;
+}
+
+.joao:hover .imagejoao {
+  transform: scale(1.1);
+}
+
+.textoescritorio {
+  padding: 30px;
+}
+
+/* contato Section */
+.contentcontato {
+  background-color: thistle;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.sobredivesq {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+
+  padding: 20px;
+}
+
+.titulocontato {
+  font-size: 30px;
+}
+
+.sobredivdir{
+  padding: 20px;
+}
+
+.buttoncontato {
+  background-color: teal;
+  width: 55%;
+  height: 5%;
+
+  padding: 5px;
 }
