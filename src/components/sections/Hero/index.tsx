@@ -73,7 +73,7 @@ const HomePage = () => {
                   px={{ base: 4, xl: 0 }}
                   letterSpacing="wide"
                 >
-                  Defendemos seus direitos< br />trabalhistas bancários< br />com excelência.
+                  Advocacia especializada< br />em direito trabalhista< br />bancário.
                 </Heading>
                 <Divider
                   my={4}
@@ -105,7 +105,7 @@ const HomePage = () => {
                 boxShadow: "md"
               }}
               boxShadow="sm"
-              onClick={() => window.open('https://wa.me/5544988592720', '_blank')}
+              onClick={() => window.open("https://wa.me/5544988592720?text=Olá%20João%20Pedro!%0A%0AGostaria%20de%20agendar%20um%20horário%20para%20discutir%20meu%20caso.", '_blank')}
             >
               Entre em contato
             </Button>
