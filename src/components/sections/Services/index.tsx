@@ -40,16 +40,18 @@ export default function Services() {
   const allRequests = [
     // Primeira coluna
     "HORAS EXTRAS (7ª e 8ª)",
+    "EQUIPARAÇÃO SALARIAL",
+    "DANOS MORAIS",
+    "EXPOSIÇÃO DE RANKING DE METAS",
+    "VENDA OBRIGATÓRIA DE FÉRIAS",
+    "ASSÉDIO MORAL",
     "HORAS EXTRAS ALÉM DA 8ª",
     "HORAS EXTRAS INTERJORNADA",
     "HORAS EXTRAS INTRAJORNADAS",
     "PLR",
-    "ARTIGO 384 (INTERVALO DA MULHER)",
     "DESVIO DE FUNÇÃO",
-    "EQUIPARAÇÃO SALARIAL",
     // Segunda coluna
-    "DANOS MORAIS",
-    "ASSÉDIO MORAL",
+    "ARTIGO 384 (INTERVALO DA MULHER)",
     "DANO MATERIAL",
     "DOENÇA OCUPACIONAL",
     "PERICULIDADE",
@@ -62,9 +64,7 @@ export default function Services() {
     "REINTEGRAÇÃO POR TUTELA DE URGÊNCIA",
     "PROTESTO INTERRUPTIVO DE PRESCRIÇÃO",
     "REINTEGRAÇÃO AO EMPREGO",
-    "PLANO DE SAÚDE",
     "ADICIONAL DE TRANSFERÊNCIA",
-    "VENDA OBRIGATÓRIA DE FÉRIAS"
   ];
 
   const displayedRequests = seeAllRequests ? allRequests : allRequests.slice(0, 6);
@@ -177,19 +177,19 @@ export default function Services() {
             ))}
           </Grid>
           {!seeAllRequests && <Button
-              size="md"
-              // bg="#C0C0C0"
-              // color="gray.800"
-              // _hover={{
-                // bg: "#A8A8A8",
-                // boxShadow: "md"
-              // }}
-              // boxShadow="sm"
+            size="md"
+            // bg="#C0C0C0"
+            // color="gray.800"
+            // _hover={{
+            // bg: "#A8A8A8",
+            // boxShadow: "md"
+            // }}
+            // boxShadow="sm"
 
-              onClick={() => setSeeAllRequest(true)}
-            >
-              Ver todos
-            </Button>}
+            onClick={() => setSeeAllRequest(true)}
+          >
+            Ver todos
+          </Button>}
 
           <Heading as="h2" size="lg" textAlign="center" color="gray.800">
             PEDIDOS ESPECÍFICOS DE CADA BANCO
@@ -245,7 +245,7 @@ export default function Services() {
             bg="#edcb77"
             color="black"
             px={8}
-            onClick={() => window.open('https://wa.me/5544988592720')}
+            onClick={() => window.open("https://wa.me/5544988592720?text=Olá%20João%20Pedro!%0A%0AGostaria%20de%20agendar%20um%20horário%20para%20discutir%20meu%20caso.")}
           >
             Entre em contato
           </Button>
