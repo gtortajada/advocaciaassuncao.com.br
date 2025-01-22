@@ -1,7 +1,9 @@
 import { Box, Container, Heading, Text, Grid, VStack } from '@chakra-ui/react'
 import Image from 'next/image'
+import { useState } from 'react'
 
 export default function AboutUs() {
+  const [isImageVisible, setIsImageVisible] = useState(false)
   return (
     <Box
       as="section"
@@ -9,45 +11,43 @@ export default function AboutUs() {
       py={16}
       bg="#E9DAC6"
     >
-      <Container maxW="container.xl">
-        <VStack gap={4} align="center">
-          <Heading
-            as="h2"
-            fontSize="sm"
-            color="#2e1012"
-            textTransform="uppercase"
-          >
-            Sobre nós
-          </Heading>
+      <Container maxW="container.xl" px={10}>
+        <VStack gap={12} align="center">
+          <VStack gap={4} textAlign="center">
+            <Heading
+              as="h2"
+              fontSize="sm"
+              color="#2e1012"
+              textTransform="uppercase"
+            >
+              Sobre nós
+            </Heading>
 
-          <Heading
-            as="h5"
-            size="lg"
-            textAlign="center"
-            color="#2e1012"
-            mb={12}
-          >
-            CONHEÇA NOSSO ESCRITÓRIO
-          </Heading>
+            <Heading
+              as="h5"
+              size="lg"
+              textAlign="center"
+              color="#2e1012"
+            >
+              CONHEÇA NOSSO ESCRITÓRIO
+            </Heading>
+          </VStack>
 
           <Grid
             templateColumns={{ base: '1fr', md: '3fr 2fr' }}
             gap={8}
             alignItems="center"
           >
-            <Box position="relative" h={{ base: "600px", md: "700px" }}>
+            <Box position="relative" h={{ base: "500px", md: "700px" }}>
               <Box
                 position="relative"
                 w="100%"
                 h="100%"
                 overflow="hidden"
                 transition="all 0.3s ease"
-                _hover={{
-                  '& > div': {
-                    opacity: 0.7,
-                    bg: 'rgba(0, 0, 0, 0.8)'
-                  }
-                }}
+                onClick={() => setIsImageVisible(!isImageVisible)}
+                cursor="pointer"
+                style={{ WebkitTapHighlightColor: 'transparent' }}
               >
                 <Image
                   src="/fotoperfil.jpg"
@@ -65,8 +65,8 @@ export default function AboutUs() {
                   left="0"
                   right="0"
                   bottom="0"
-                  bg="rgba(0, 0, 0, 0)"
-                  opacity={0}
+                  bg={isImageVisible ? "rgba(0, 0, 0, 0)" : "rgba(0, 0, 0, 0.8)"}
+                  opacity={isImageVisible ? 0 : 0.7}
                   transition="all 0.3s ease"
                   display="flex"
                   alignItems="center"
@@ -110,6 +110,6 @@ export default function AboutUs() {
           </Grid>
         </VStack>
       </Container>
-    </Box>
+    </Box >
   )
 }
