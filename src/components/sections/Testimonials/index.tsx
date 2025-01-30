@@ -5,10 +5,10 @@ type TestimonialProps = {
   name: string
 }
 
-const TestimonialCard = ({ text, name}: TestimonialProps) => (
+const TestimonialCard = ({ text, name }: TestimonialProps) => (
   <Box
     bg="white"
-    p={8}
+    p={6}
     borderRadius="lg"
     boxShadow="lg"
     _hover={{ transform: 'translateY(-5px)', transition: 'all 0.3s ease' }}
@@ -61,9 +61,10 @@ export default function Testimonials() {
       py={16}
       bg="#E9DAC6"
     >
-      <Container maxW="container.xl">
+      <Container maxW="container.xl" px={10}>
         <VStack gap={12}>
-        <Heading
+          <VStack gap={4} textAlign="center">
+            <Heading
               as="h2"
               fontSize="sm"
               color="#2e1012"
@@ -71,19 +72,19 @@ export default function Testimonials() {
             >
               Depoimentos
             </Heading>
-          <Heading
-            as="h3"
-            size="lg"
-            textAlign="center"
-            color="gray.800"
-          >
-            O QUE NOSSOS CLIENTES DIZEM
-          </Heading>
+            <Heading
+              as="h3"
+              size="lg"
+              textAlign="center"
+              color="gray.800"
+            >
+              O QUE NOSSOS CLIENTES DIZEM
+            </Heading>
+          </VStack>
 
           <SimpleGrid
             columns={{ base: 1, md: 2, lg: 3 }}
             gap={8}
-            w="full"
           >
             {testimonials.map((testimonial, index) => (
               <TestimonialCard

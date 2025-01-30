@@ -94,6 +94,7 @@ export default function Specialties() {
               POR QUE ESCOLHER A ADVOCACIA ASSUNÇÃO?
             </Heading>
           </VStack>
+
           <SimpleGrid
             columns={{ base: 1, md: 2 }}
             gap={8}

@@ -148,8 +148,9 @@ export default function Services() {
 
   return (
     <Box as="section" id="services" py={16} bg="gray.50">
-      <Container maxW="container.xl">
+      <Container maxW="container.xl" px={10}>
         <VStack gap={8}>
+        <VStack gap={4} textAlign="center">
           <Heading
             as="h2"
             fontSize="sm"
@@ -161,6 +162,7 @@ export default function Services() {
           <Heading as="h2" size="lg" textAlign="center" color="gray.800">
             PRINCIPAIS PEDIDOS BANCÁRIOS
           </Heading>
+          </VStack>
 
           <Grid
             templateColumns={{
