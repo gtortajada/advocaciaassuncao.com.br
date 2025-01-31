@@ -126,7 +126,7 @@ export const Navbar: React.FC = () => {
             >
               <Image
                 src={logoSize.src}
-                alt="Logo Advocacia Assunção"
+                alt="Advocacia Assunção"
                 fill
                 style={{ objectFit: 'contain' }}
                 priority
