@@ -36,7 +36,6 @@ const BankItem = ({ item }: BankItemProps) => (
 
 export default function Services() {
   const [seeAllRequests, setSeeAllRequest] = useState(false);
-  console.log(seeAllRequests);
   const allRequests = [
     // Primeira coluna
     "HORAS EXTRAS (7ª e 8ª)",
