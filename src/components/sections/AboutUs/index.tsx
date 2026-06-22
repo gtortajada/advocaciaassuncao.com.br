@@ -53,11 +53,13 @@ export default function AboutUs() {
                   src="/fotoperfil.jpg"
                   alt="Foto de perfil do João Pedro Assunção"
                   fill
+                  sizes="(max-width: 768px) 100vw, 60vw"
                   style={{
                     objectFit: 'cover',
                     objectPosition: 'top center'
                   }}
                   priority
+                  quality={35}
                 />
                 <Box
                   position="absolute"

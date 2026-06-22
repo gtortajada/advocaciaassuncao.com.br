@@ -128,8 +128,10 @@ export const Navbar: React.FC = () => {
                 src={logoSize.src}
                 alt="Advocacia Assunção"
                 fill
+                sizes="(max-width: 1024px) 90px, 552px"
                 style={{ objectFit: 'contain' }}
-                priority
+                // priority
+                quality={85}
               />
             </Box>
           </Link>

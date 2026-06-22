@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <>
       <Box as="section" id="home" position="relative" height="100vh" overflow="hidden">
-        <Box display={{ base: 'block', lg: 'block' }}>
+        <Box position="absolute" inset={0} display={{ base: 'block', lg: 'block' }}>
           <Image
             src="/hero-bg-mobile.jpg"
             alt="Background Mobile e Tablet"
@@ -19,12 +19,13 @@ const HomePage = () => {
           />
         </Box>
 
-        <Box display={{ base: 'none', xl: 'block' }}>
+        <Box position="absolute" inset={0} display={{ base: 'none', xl: 'block' }}>
           <Image
             src="/hero-bg.jpg"
             alt="Background Desktop"
             fill
             priority
+            sizes="100vw"
             style={{
               objectFit: 'cover',
               objectPosition: 'center',
