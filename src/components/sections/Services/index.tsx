@@ -150,14 +150,6 @@ export default function Services() {
       <Container maxW="container.xl" px={10}>
         <VStack gap={8}>
         <VStack gap={4} textAlign="center">
-          <Heading
-            as="h2"
-            fontSize="sm"
-            color="#2e1012"
-            textTransform="uppercase"
-          >
-            Áreas de atuação
-          </Heading>
           <Heading as="h2" size="lg" textAlign="center" color="gray.800">
             PRINCIPAIS PEDIDOS BANCÁRIOS
           </Heading>

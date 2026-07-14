@@ -21,7 +21,8 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { label: 'Home', href: '#home' },
-  { label: 'Áreas de Atuação', href: '#services' },
+  { label: 'Previdenciário', href: '#previdenciario' },
+  { label: 'Bancário', href: '#services' },
   { label: 'Depoimentos', href: '#testimonials' },
   { label: 'Diferenciais', href: '#specialties' },
   { label: 'Sobre Nós', href: '#about' },

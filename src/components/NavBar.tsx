@@ -22,7 +22,8 @@ import Image from 'next/image';
 
 const NAV_ITEMS = [
   { label: 'Home', href: '#home' },
-  { label: 'Áreas de Atuação', href: '#services' },
+  { label: 'Previdenciário', href: '#previdenciario' },
+  { label: 'Bancário', href: '#services' },
   { label: 'Depoimentos', href: '#testimonials' },
   { label: 'Diferenciais', href: '#specialties' },
   { label: 'Sobre Nós', href: '#about' },
