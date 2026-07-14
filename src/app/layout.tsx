@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 import Script from 'next/script'
 
 import { Providers } from "@/app/providers"
+import { CookieConsentBanner } from '@/components/CookieConsent'
 import { WebsiteLayout } from '@/components/WebsiteLayout'
 
 export const metadata: Metadata = {
@@ -51,6 +52,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={montserrat.className}>
         <Script
+          id="gtm-consent-default"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  analytics_storage: 'denied',
+  ad_storage: 'denied'
+});
+window.gtag = gtag;`,
+          }}
+        />
+        <Script
           id="gtm-script"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -69,34 +83,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
-        <Script
-          id="linkedin-insight"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-_linkedin_partner_id = "10418265";
-window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-(function(l) {
-if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
-window.lintrk.q=[]}
-var s = document.getElementsByTagName("script")[0];
-var b = document.createElement("script");
-b.type = "text/javascript";b.async = true;
-b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-s.parentNode.insertBefore(b, s);})(window.lintrk);`,
-          }}
-        />
-        <noscript>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            height="1"
-            width="1"
-            style={{ display: 'none' }}
-            alt=""
-            src="https://px.ads.linkedin.com/collect/?pid=10418265&fmt=gif"
-          />
-        </noscript>
+        <CookieConsentBanner />
         <Providers>
           <WebsiteLayout>
             {children}
