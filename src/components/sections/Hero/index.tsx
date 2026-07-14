@@ -96,6 +96,18 @@ const HomePage = () => {
                 Atendemos todo o Brasil.<br />
                 Resultados comprovados!
               </Heading>
+              <Heading
+                size={{ base: 'lg', xl: 'lg' }}
+                lineHeight="1.2"
+                maxW="3xl"
+                color="white"
+                fontFamily="var(--font-montserrat)"
+                fontWeight="normal"
+                px={{ base: 4, xl: 0 }}
+              >
+                Mais de R$20.000.000,00 <br />
+                em valor protocolado.
+              </Heading>
             </VStack>
             <Button
               size="lg"
