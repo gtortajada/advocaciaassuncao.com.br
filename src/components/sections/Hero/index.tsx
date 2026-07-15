@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Box, Container, Heading, Button, VStack, Divider } from '@chakra-ui/react'
+import { WHATSAPP_NUMBER } from '@/lib/constants'
 
 const HomePage = () => {
   return (
@@ -118,7 +119,7 @@ const HomePage = () => {
                 boxShadow: "md"
               }}
               boxShadow="sm"
-              onClick={() => window.open("https://wa.me/5544988592720?text=Olá%20João%20Pedro!%0A%0AGostaria%20de%20agendar%20um%20horário%20para%20discutir%20meu%20caso.", '_blank')}
+              onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Olá%20João%20Pedro!%0A%0AGostaria%20de%20agendar%20um%20horário%20para%20discutir%20meu%20caso.`, '_blank')}
             >
               Entre em contato
             </Button>

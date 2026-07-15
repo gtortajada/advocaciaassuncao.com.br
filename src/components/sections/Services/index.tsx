@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react';
 import { SendHorizontal, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
+import { WHATSAPP_NUMBER } from '@/lib/constants';
 
 interface RequestItemProps {
   text: string;
@@ -238,7 +239,7 @@ export default function Services() {
             bg="#edcb77"
             color="black"
             px={8}
-            onClick={() => window.open("https://wa.me/5544988592720?text=Olá%20João%20Pedro!%0A%0AGostaria%20de%20agendar%20um%20horário%20para%20discutir%20meu%20caso.")}
+            onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Olá%20João%20Pedro!%0A%0AGostaria%20de%20agendar%20um%20horário%20para%20discutir%20meu%20caso.`)}
           >
             Entre em contato
           </Button>
