@@ -1,76 +1,49 @@
-import { Box, Button, Heading, Text, VStack, Container, SimpleGrid } from '@chakra-ui/react'
-import { MessageCircleMore, Mail } from 'lucide-react'
+import { Box, Grid, Heading, Text, VStack, Container } from "@chakra-ui/react";
+
+import ContactForm from "./ContactForm";
+import { WHATSAPP_NUMBER } from "@/lib/constants";
+
+const localNumber = WHATSAPP_NUMBER.slice(2);
+const displayPhone = `(${localNumber.slice(0, 2)}) ${localNumber.slice(2, 7)}-${localNumber.slice(7)}`;
 
 export default function Contact() {
   return (
-    <Box
-      as="section"
-      id="contact"
-      py={16}
-      bg="#2e1012"
-    >
+    <Box as="section" id="contact" py={16} bg="#2e1012">
       <Container maxW="container.xl" px={4}>
-        <VStack
-          spacing={4}
-          align="center"
-          textAlign="center"
-          mb={12}
-        >
-          <Heading
-            as="h6"
-            size="md"
-            color="#fff4e4"
-            textTransform="uppercase"
-          >
+        <VStack spacing={4} align="center" textAlign="center" mb={12}>
+          <Heading as="h6" size="md" color="#fff4e4" textTransform="uppercase">
             Fale conosco
           </Heading>
           <Text fontSize="lg" maxW="600px" color="white">
-            Para esclarecer suas dúvidas e conferir as possibilidades do seu caso,
-            entre em contato hoje mesmo.
+            Para esclarecer suas dúvidas e conferir as possibilidades do seu
+            caso, preencha o formulário abaixo. Enviaremos sua mensagem
+            diretamente pelo WhatsApp.
           </Text>
         </VStack>
 
-        <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-          <VStack 
-            spacing={4} 
-            align={{ base: "center", md: "center" }}
-            textAlign="center"
-          >
-            <Text color="white" fontSize="lg">
-              Atendemos de segunda a sexta-feira das
-              <br />
-              9h às 12h e 14 às 17:30.
-            </Text>
-            <Button
-              leftIcon={<MessageCircleMore />}
-              colorScheme="green"
-              size="lg"
-              onClick={() => window.open("https://wa.me/5544988592720?text=Olá%20João%20Pedro!%0A%0AGostaria%20de%20agendar%20um%20horário%20para%20discutir%20meu%20caso.")}
-            >
-              WhatsApp
-            </Button>
-          </VStack>
+        <Grid templateColumns={{ base: "1fr", md: "2fr 1fr" }} gap={10}>
+          <ContactForm />
 
-          <VStack 
-            spacing={4}
-            align={{ base: "center", md: "center" }}
-            textAlign="center"
-          >
-            <Text color="white" fontSize="lg">
-              Se preferir enviar informações sobre seu caso,<br />
-              nos envie um e-mail:
-            </Text>
-            <Button
-              leftIcon={<Mail />}
-              colorScheme="blue"
-              size="lg"
-              onClick={() => window.location.href = 'mailto:joaopedro.assuncao.adv@gmail.com?subject=Consulta%20Jurídica&body=Olá%20João%20Pedro!%0A%0AGostaria%20de%20discutir%20meu%20caso.'}
-            >
-              E-mail
-            </Button>
+          <VStack align="flex-start" spacing={8} color="#C0C0C0">
+            <VStack align="flex-start" spacing={1}>
+              <Text fontWeight={700}>Telefone</Text>
+              <Text>{displayPhone}</Text>
+            </VStack>
+
+            <VStack align="flex-start" spacing={1}>
+              <Text fontWeight={700}>E-mail</Text>
+              <Text>joaopedro.assuncao.adv@gmail.com</Text>
+            </VStack>
+
+            <VStack align="flex-start" spacing={1}>
+              <Text fontWeight={700}>Horário de atendimento</Text>
+              <Text>
+                Segunda a sexta-feira, das 9h às 12h e das 14h às 17h30
+              </Text>
+            </VStack>
           </VStack>
-        </SimpleGrid>
+        </Grid>
       </Container>
     </Box>
-  )
+  );
 }

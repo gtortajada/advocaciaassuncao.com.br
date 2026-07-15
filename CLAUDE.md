@@ -45,7 +45,7 @@ Layout global: `src/app/layout.tsx` → `WebsiteLayout` → `Navbar` + conteúdo
 - **Consistência visual obrigatória** — qualquer mudança deve ser indistinguível do estilo atual. Seguir exatamente os padrões de espaçamento, tipografia e cores já usados.
 - **Chakra UI apenas** — não introduzir outras bibliotecas de UI ou CSS-in-JS.
 - **Sem novas páginas por enquanto** — o site permanece como SPA.
-- **Sem formulários ou CMS** — contato exclusivamente via WhatsApp e e-mail.
+- **Sem CMS** — a seção de contato usa um formulário (Nome, Telefone, Assunto, Mensagem) que envia os dados via WhatsApp; não há backend, persistência de dados ou envio de e-mail por formulário.
 
 ## Analytics
 
